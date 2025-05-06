@@ -55,24 +55,24 @@ export default function DemoPage() {
             </div>
 
             <Tabs defaultValue="credit" className="max-w-4xl mx-auto">
-              <TabsList className="grid grid-cols-2 md:grid-cols-4 gap-2">
-                  <TabsTrigger value="credit" className="flex items-center gap-2 justify-center">
-                    <CreditCard className="h-4 w-4" />
-                    <span>Credit Building</span>
-                  </TabsTrigger>
-                  <TabsTrigger value="tracking" className="flex items-center gap-2 justify-center">
-                    <TrendingUp className="h-4 w-4" />
-                    <span>Expense Tracking</span>
-                  </TabsTrigger>
-                  <TabsTrigger value="rewards" className="flex items-center gap-2 justify-center">
-                    <Award className="h-4 w-4" />
-                    <span>Rewards</span>
-                  </TabsTrigger>
-                  <TabsTrigger value="education" className="flex items-center gap-2 justify-center">
-                    <BookOpen className="h-4 w-4" />
-                    <span>Education</span>
-                  </TabsTrigger>
-                </TabsList>
+            <TabsList className="flex gap-2 overflow-x-auto">
+              <TabsTrigger value="credit" className="flex items-center justify-center gap-2 min-w-[150px]">
+                <CreditCard className="h-4 w-4" />
+                <span>Credit Building</span>
+              </TabsTrigger>
+              <TabsTrigger value="tracking" className="flex items-center justify-center gap-2 min-w-[150px]">
+                <TrendingUp className="h-4 w-4" />
+                <span>Expense Tracking</span>
+              </TabsTrigger>
+              <TabsTrigger value="rewards" className="flex items-center justify-center gap-2 min-w-[150px]">
+                <Award className="h-4 w-4" />
+                <span>Rewards</span>
+              </TabsTrigger>
+              <TabsTrigger value="education" className="flex items-center justify-center gap-2 min-w-[150px]">
+                <BookOpen className="h-4 w-4" />
+                <span>Education</span>
+              </TabsTrigger>
+            </TabsList>
 
 
               <TabsContent value="credit">
