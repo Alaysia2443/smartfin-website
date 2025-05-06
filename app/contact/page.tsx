@@ -1,4 +1,5 @@
 "use client"
+import Link from "next/link"
 
 import type React from "react"
 
@@ -103,7 +104,7 @@ export default function ContactPage() {
                     </div>
                     <div>
                       <h3 className="font-bold">Office</h3>
-                      <p className="text-gray-600">123 Financial Street, San Francisco, CA 94107</p>
+                      <p className="text-gray-600">1 E Loop Rd, New York, NY 10044</p>
                     </div>
                   </div>
 
@@ -201,8 +202,17 @@ export default function ContactPage() {
                 {/* This would be a map in a real implementation */}
                 <div className="w-full h-full flex items-center justify-center">
                   <div className="text-center">
-                    <MapPin className="h-12 w-12 text-gray-400 mx-auto mb-2" />
-                    <p className="text-gray-500">Map would be displayed here</p>
+                  <Link
+  href="https://www.google.com/maps/place/The+House+at+Cornell+Tech/@40.7559098,-73.9581123,16.68z/data=!4m6!3m5!1s0x89c25900669553bd:0x57bf3c33df8f3457!8m2!3d40.7557675!4d-73.954814!16s%2Fg%2F11vx0b9n4k?entry=ttu&g_ep=EgoyMDI1MDQzMC4xIKXMDSoASAFQAw%3D%3D"
+  target="_blank"          // opens in a new tab (optional—remove if you want same‑tab)
+  rel="noopener noreferrer"
+>
+  <img
+    src="/thehouse.png"    /* adjust path if needed */
+    alt="The House at Cornell Tech"
+    className="cursor-pointer"
+  />
+</Link>
                   </div>
                 </div>
               </div>

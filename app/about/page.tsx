@@ -18,38 +18,35 @@ export default function AboutPage() {
         </section>
 
         {/* Mission Section */}
-        <section className="py-16 md:py-24">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div>
-                <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display">
-                  Financially empowering <span className="text-primary-500">every</span> student in America
-                </h2>
-                <p className="text-lg text-gray-700 mb-6">
-                  We help students from all financial, ethnic, and social backgrounds get the opportunity to build their
-                  credit and financial future well before they enter the workforce.
-                </p>
-                <p className="text-lg text-gray-700 mb-6">
-                  Underserved students are struggling to manage their financial lives without a financial safety net or
-                  the resources to set up their credits for the future.
-                </p>
-                <p className="text-lg text-gray-700">
-                  SmartFin is a student-centered mobile application providing students access to credit management plans
-                  providing healthy spending habits, and builds community around financial literacy.
-                </p>
-              </div>
-              <div className="bg-gray-200 rounded-lg aspect-video">
-                <Image
-                  src="/placeholder.svg?height=400&width=600"
-                  alt="Students using SmartFin"
-                  width={600}
-                  height={400}
-                  className="w-full h-full object-cover rounded-lg"
-                />
-              </div>
-            </div>
-          </div>
-        </section>
+        <section
+  className="relative py-16 md:py-24 bg-center bg-cover"
+  style={{ backgroundImage: "url('/students.png')" }}   // adjust path if needed
+>
+  {/* dark overlay for contrast */}
+  <div className="absolute inset-0 bg-black/40" />
+
+  {/* text content */}
+  <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
+    <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display text-white">
+      Financially empowering <span className="text-primary-500">every</span> student in America
+    </h2>
+
+    <p className="text-lg md:text-xl text-gray-200 max-w-3xl mb-6">
+      We help students from all financial, ethnic, and social backgrounds get the opportunity to build their
+      credit and financial future well before they enter the workforce.
+    </p>
+
+    <p className="text-lg md:text-xl text-gray-200 max-w-3xl mb-6">
+      Underserved students are struggling to manage their financial lives without a financial safety net or
+      the resources to set up their credits for the future.
+    </p>
+
+    <p className="text-lg md:text-xl text-gray-200 max-w-3xl">
+      SmartFin is a student‑centered mobile application providing students access to credit‑management plans,
+      encouraging healthy spending habits, and building community around financial literacy.
+    </p>
+  </div>
+</section>
 
         {/* Stats Section */}
         <section className="py-16 md:py-24 bg-[#f8f7f4]">
@@ -157,15 +154,15 @@ export default function AboutPage() {
                 <div className="aspect-square bg-gray-200">
                   <Image
                     src="/placeholder.svg?height=300&width=300"
-                    alt="Alex Johnson"
+                    alt="Alaysia Reape"
                     width={300}
                     height={300}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className="font-bold text-lg">Alex Johnson</h3>
-                  <p className="text-gray-500 text-sm">Founder & CEO</p>
+                  <h3 className="font-bold text-lg">Alaysia Reape</h3>
+                  <p className="text-gray-500 text-sm">Frontend Developer</p>
                 </div>
               </div>
 
@@ -173,15 +170,15 @@ export default function AboutPage() {
                 <div className="aspect-square bg-gray-200">
                   <Image
                     src="/placeholder.svg?height=300&width=300"
-                    alt="Taylor Smith"
+                    alt="Noor EL-Hawwat"
                     width={300}
                     height={300}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className="font-bold text-lg">Taylor Smith</h3>
-                  <p className="text-gray-500 text-sm">Chief Technology Officer</p>
+                  <h3 className="font-bold text-lg">Noor EL-Hawwat</h3>
+                  <p className="text-gray-500 text-sm">Frontend Developer</p>
                 </div>
               </div>
 
@@ -189,15 +186,15 @@ export default function AboutPage() {
                 <div className="aspect-square bg-gray-200">
                   <Image
                     src="/placeholder.svg?height=300&width=300"
-                    alt="Jordan Lee"
+                    alt="Aimalohi Alakhume"
                     width={300}
                     height={300}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className="font-bold text-lg">Jordan Lee</h3>
-                  <p className="text-gray-500 text-sm">Head of Product Development</p>
+                  <h3 className="font-bold text-lg">Michael Meng</h3>
+                  <p className="text-gray-500 text-sm">Backend Developer</p>
                 </div>
               </div>
 
@@ -205,15 +202,15 @@ export default function AboutPage() {
                 <div className="aspect-square bg-gray-200">
                   <Image
                     src="/placeholder.svg?height=300&width=300"
-                    alt="Casey Morgan"
+                    alt="Michael Meng"
                     width={300}
                     height={300}
                     className="w-full h-full object-cover"
                   />
                 </div>
                 <div className="p-4">
-                  <h3 className="font-bold text-lg">Casey Morgan</h3>
-                  <p className="text-gray-500 text-sm">Financial Education Specialist</p>
+                  <h3 className="font-bold text-lg">Aimalohi Alakhume</h3>
+                  <p className="text-gray-500 text-sm">Backend Developer</p>
                 </div>
               </div>
             </div>
@@ -234,7 +231,7 @@ export default function AboutPage() {
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Button size="lg" variant="outline" className="border-white text-black hover:bg-white/10">
                   Contact Us
                 </Button>
               </Link>

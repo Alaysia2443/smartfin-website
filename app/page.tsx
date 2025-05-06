@@ -1,6 +1,7 @@
+"use client"
+
 import { Button } from "@/components/ui/button"
 import { TrendingUp, CreditCard, Users, BookOpen } from "lucide-react"
-import Image from "next/image"
 import Link from "next/link"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
@@ -11,51 +12,59 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
-      <main className="flex-grow">
-        {/* Hero Section */}
-        <section className="relative bg-[#f8f7f4] py-16 md:py-24 overflow-hidden">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="grid md:grid-cols-2 gap-12 items-center">
-              <div className="space-y-6">
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-display">
-                  Here to help <span className="text-primary-500">every</span> university student.
-                </h1>
-                <p className="text-lg text-gray-700">
-                  SmartFin empowers college students to take control of their financial future. Build credit, track
-                  spending, and earn rewards while learning essential financial skills.
-                </p>
-                <div className="flex flex-wrap gap-4">
-                  <Link href="/signup">
-                    <Button size="lg" className="bg-primary-500 hover:bg-primary-600 text-white">
-                      Create Account <span className="ml-2">→</span>
-                    </Button>
-                  </Link>
-                  <Link href="#features">
-                    <Button size="lg" variant="outline" className="border-primary-500 text-primary-500">
-                      Learn More
-                    </Button>
-                  </Link>
-                </div>
-              </div>
-              <div className="relative mt-10 md:mt-0 flex justify-center">
-                <div className="relative w-[280px] h-[560px] bg-white rounded-[40px] shadow-xl overflow-hidden border-8 border-gray-100">
-                  <Image
-                    src="/placeholder.svg?height=560&width=280"
-                    alt="SmartFin App"
-                    width={280}
-                    height={560}
-                    className="w-full h-full object-cover"
-                  />
-                  <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2">
-                    <div className="bg-primary-500 text-white text-xs px-3 py-1 rounded-full">Try Demo</div>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
 
-        {/* Features Section */}
+      <main className="flex-grow">
+        {/* ─────────────────────────────  Hero Section  ───────────────────────────── */}
+        <section
+  className="relative py-16 md:py-24 bg-center bg-cover"
+  style={{ backgroundImage: "url('/girlphone.png')" }}   // adjust path if needed
+>
+  {/* subtle dark overlay for contrast */}
+  <div className="absolute inset-0 bg-black/35" />
+
+  <div className="relative z-10 container mx-auto px-4 md:px-6">
+    <div className="grid md:grid-cols-2 gap-12 items-center">
+      {/* Text + CTA */}
+      <div className="space-y-6">
+        <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-display text-white">
+          Here to help <span className="text-primary-500">every</span> university student.
+        </h1>
+
+        <p className="text-lg text-gray-200">
+          SmartFin empowers college students to take control of their financial future. Build credit, track
+          spending, and earn rewards while learning essential financial skills.
+        </p>
+
+        <div className="flex flex-wrap gap-4">
+          <Link href="/signup">
+            <Button size="lg" className="bg-primary-500 hover:bg-primary-600 text-white">
+              Create Account <span className="ml-2">→</span>
+            </Button>
+          </Link>
+
+          <Link href="#features">
+          <Button size="lg" variant="outline" className="border-primary-500 text-primary-500">
+                  Learn More
+                </Button>
+          </Link>
+        </div>
+      </div>
+
+      {/* Phone‑shaped video container (unchanged) */}
+      <div className="relative mt-10 md:mt-0 flex justify-center">
+        <div className="relative w-[280px] h-[560px] rounded-[40px] overflow-hidden shadow-xl border-8 border-gray-100">
+        <img
+                src="/SmartFinDemo.gif"        /* adjust path if needed */
+                alt="SmartFin Demo"
+                className="w-[280px] h-[550px]"
+              />
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+        {/* ─────────────────────────────  Features Section  ───────────────────────────── */}
         <section id="features" className="py-16 md:py-24">
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-16">
@@ -63,8 +72,8 @@ export default function Home() {
                 Building Credit <span className="text-primary-500">Made Simple</span>
               </h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                SmartFin helps you build credit while you make purchases on the app, so by the time you graduate, you'll
-                have a solid financial foundation.
+                SmartFin helps you build credit while you make purchases on the app, so by the time you graduate,
+                you'll have a solid financial foundation.
               </p>
             </div>
 
@@ -88,7 +97,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold mb-2">Financial Tracking</h3>
                 <p className="text-gray-600">
-                  Monitor your spending habits in real-time. Set budgets, receive alerts, and visualize where your money
+                  Monitor your spending habits in real‑time. Set budgets, receive alerts, and visualize where your money
                   goes.
                 </p>
               </div>
@@ -100,7 +109,7 @@ export default function Home() {
                 </div>
                 <h3 className="text-xl font-bold mb-2">Financial Education</h3>
                 <p className="text-gray-600">
-                  Access bite-sized lessons on how to budget, understand credit, investing, and student loans.
+                  Access bite‑sized lessons on budgeting, credit, investing, and student loans.
                 </p>
               </div>
 
@@ -118,7 +127,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Stats Section */}
+        {/* ─────────────────────────────  Stats Section  ───────────────────────────── */}
         <section className="py-16 md:py-24 bg-secondary text-white">
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-12">
@@ -149,7 +158,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Call to Action */}
+        {/* ─────────────────────────────  Call‑to‑Action Section  ───────────────────────────── */}
         <section className="py-16 md:py-24 bg-[#f8f7f4]">
           <div className="container mx-auto px-4 md:px-6 text-center">
             <h2 className="text-3xl md:text-4xl font-bold mb-6 font-display">
@@ -158,12 +167,14 @@ export default function Home() {
             <p className="text-lg text-gray-600 mb-8 max-w-3xl mx-auto">
               Join thousands of students already building credit and financial literacy with SmartFin.
             </p>
+
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/signup">
                 <Button size="lg" className="bg-primary-500 hover:bg-primary-600 text-white">
                   Get Started
                 </Button>
               </Link>
+
               <Link href="/demo">
                 <Button size="lg" variant="outline" className="border-primary-500 text-primary-500">
                   Learn More
@@ -173,7 +184,7 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Testimonials */}
+        {/* ─────────────────────────────  Testimonials Section  ───────────────────────────── */}
         <section className="py-16 md:py-24 bg-testimonial-pattern bg-cover bg-center">
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-12">
@@ -184,9 +195,10 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-3 gap-8">
+              {/* Testimonial 1 */}
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+                  <div className="w-12 h-12 bg-gray-200 rounded-full mr-4" />
                   <div>
                     <h4 className="font-bold">Alex Johnson</h4>
                     <p className="text-sm text-gray-500">UCLA, Class of 2023</p>
@@ -198,9 +210,10 @@ export default function Home() {
                 </p>
               </div>
 
+              {/* Testimonial 2 */}
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+                  <div className="w-12 h-12 bg-gray-200 rounded-full mr-4" />
                   <div>
                     <h4 className="font-bold">Taylor Smith</h4>
                     <p className="text-sm text-gray-500">NYU, Class of 2024</p>
@@ -212,9 +225,10 @@ export default function Home() {
                 </p>
               </div>
 
+              {/* Testimonial 3 */}
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gray-200 rounded-full mr-4"></div>
+                  <div className="w-12 h-12 bg-gray-200 rounded-full mr-4" />
                   <div>
                     <h4 className="font-bold">Jordan Lee</h4>
                     <p className="text-sm text-gray-500">University of Michigan, Class of 2025</p>
@@ -229,10 +243,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Demo Section */}
+        {/* ─────────────────────────────  Demo Section (separate component)  ───────────────────────────── */}
         <DemoSection />
 
-        {/* Signup Form Section */}
+        {/* ─────────────────────────────  Signup Section  ───────────────────────────── */}
         <section className="py-16 md:py-24 bg-white">
           <div className="container mx-auto px-4 md:px-6 max-w-4xl">
             <div className="text-center mb-12">
@@ -246,6 +260,7 @@ export default function Home() {
           </div>
         </section>
       </main>
+
       <Footer />
     </div>
   )
