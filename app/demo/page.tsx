@@ -35,7 +35,7 @@ export default function DemoPage() {
             <div className="max-w-4xl mx-auto flex justify-center">
             <div className="relative w-[280px] h-[560px] rounded-[40px] overflow-hidden shadow-xl border-8 border-gray-100">
         <img
-                src="/SmartFinDemo.gif"        /* adjust path if needed */
+                src="/SmartFinDemo.gif"       
                 alt="SmartFin Demo"
                 className="w-[280px] h-[550px]"
               />
@@ -45,7 +45,7 @@ export default function DemoPage() {
         </section>
 
         {/* Feature Demo Section */}
-        <section className="py-8 md:py-24 bg-[#f8f7f4]">
+        <section className="pt-4 pb-8 md:pt-8 md:pb-24 bg-[#f8f7f4]">
           <div className="container mx-auto px-4 md:px-6">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">Explore Key Features</h2>
