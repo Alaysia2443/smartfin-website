@@ -55,8 +55,8 @@ export default function DemoPage() {
             </div>
 
             <Tabs defaultValue="credit" className="max-w-4xl mx-auto">
-            <div className="flex justify-start space-x-4 overflow-x-auto whitespace-nowrap no-scrollbar">
-                <TabsList className="grid grid-cols-4 gap-4">
+            <div className="overflow-x-auto whitespace-nowrap no-scrollbar">
+                <TabsList className="inline-flex space-x-4">
                   <TabsTrigger value="credit" className="flex items-center gap-2">
                     <CreditCard className="h-4 w-4" />
                     <span>Credit Building</span>
