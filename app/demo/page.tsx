@@ -32,17 +32,14 @@ export default function DemoPage() {
               </p>
             </div>
 
-            <div className="max-w-4xl mx-auto">
-              <div className="relative aspect-video bg-gray-100 rounded-lg overflow-hidden shadow-lg">
-                <div className="absolute inset-0 flex items-center justify-center">
-                  <div className="text-center">
-                    <div className="w-20 h-20 bg-primary-500 rounded-full flex items-center justify-center mx-auto mb-4 cursor-pointer hover:bg-primary-600 transition-colors">
-                      <Play className="h-10 w-10 text-white" />
-                    </div>
-                    <p className="text-gray-500">Click to watch demo video</p>
-                  </div>
-                </div>
-              </div>
+            <div className="max-w-4xl mx-auto flex justify-center">
+            <div className="relative w-[280px] h-[560px] rounded-[40px] overflow-hidden shadow-xl border-8 border-gray-100">
+        <img
+                src="/SmartFinDemo.gif"        /* adjust path if needed */
+                alt="SmartFin Demo"
+                className="w-[280px] h-[550px]"
+              />
+        </div>
             </div>
           </div>
         </section>
@@ -120,7 +117,7 @@ export default function DemoPage() {
                       </div>
                       <div className="bg-white p-6 rounded-lg shadow-md">
                         <Image
-                          src="/placeholder.svg?height=400&width=400"
+                          src="/creditscore.webp?height=400&width=400"
                           alt="Credit Building Feature"
                           width={400}
                           height={400}
@@ -168,7 +165,7 @@ export default function DemoPage() {
                       </div>
                       <div className="bg-white p-6 rounded-lg shadow-md">
                         <Image
-                          src="/placeholder.svg?height=400&width=400"
+                          src="/status.png?height=400&width=400"
                           alt="Expense Tracking Feature"
                           width={400}
                           height={400}
@@ -216,7 +213,7 @@ export default function DemoPage() {
                       </div>
                       <div className="bg-white p-6 rounded-lg shadow-md">
                         <Image
-                          src="/placeholder.svg?height=400&width=400"
+                          src="/win.png?height=400&width=400"
                           alt="Rewards Feature"
                           width={400}
                           height={400}
@@ -271,7 +268,7 @@ export default function DemoPage() {
                       </div>
                       <div className="bg-white p-6 rounded-lg shadow-md">
                         <Image
-                          src="/placeholder.svg?height=400&width=400"
+                          src="/campusconnect.png?height=400&width=400"
                           alt="Education Feature"
                           width={400}
                           height={400}
@@ -292,7 +289,7 @@ export default function DemoPage() {
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">App Preview</h2>
               <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Take a look at the SmartFin app interface and see how easy it is to use.
+                Everything a college student needs to hone their financial skills well before graduation.
               </p>
             </div>
 
@@ -300,7 +297,7 @@ export default function DemoPage() {
               <div className="flex justify-center">
                 <div className="relative w-[240px] h-[480px] bg-white rounded-[36px] shadow-xl overflow-hidden border-8 border-gray-800">
                   <Image
-                    src="/placeholder.svg?height=480&width=240"
+                    src="/dashboard.png?height=480&width=240"
                     alt="SmartFin App Dashboard"
                     width={240}
                     height={480}
@@ -315,7 +312,7 @@ export default function DemoPage() {
               <div className="flex justify-center">
                 <div className="relative w-[240px] h-[480px] bg-white rounded-[36px] shadow-xl overflow-hidden border-8 border-gray-800">
                   <Image
-                    src="/placeholder.svg?height=480&width=240"
+                    src="/transactions.png?height=480&width=240"
                     alt="SmartFin App Transactions"
                     width={240}
                     height={480}
@@ -330,7 +327,7 @@ export default function DemoPage() {
               <div className="flex justify-center">
                 <div className="relative w-[240px] h-[480px] bg-white rounded-[36px] shadow-xl overflow-hidden border-8 border-gray-800">
                   <Image
-                    src="/placeholder.svg?height=480&width=240"
+                    src="/rewards.png?height=480&width=240"
                     alt="SmartFin App Rewards"
                     width={240}
                     height={480}
@@ -354,12 +351,12 @@ export default function DemoPage() {
             </p>
             <div className="flex flex-wrap justify-center gap-4">
               <Link href="/signup">
-                <Button size="lg" className="bg-white text-secondary hover:bg-gray-100">
+                <Button size="lg" className="bg-white text-secondary hover:bg-black-100">
                   Create Account
                 </Button>
               </Link>
               <Link href="/contact">
-                <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+                <Button size="lg" variant="outline" className="border-white text-black hover:bg-white/10">
                   Contact Us
                 </Button>
               </Link>

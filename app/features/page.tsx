@@ -131,7 +131,7 @@ export default function FeaturesPage() {
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/advice.gif?height=400&width=600"
                   alt="Credit Building Feature"
                   width={600}
                   height={400}
@@ -144,7 +144,7 @@ export default function FeaturesPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center mb-24">
               <div className="order-2 md:order-1 bg-white p-6 rounded-lg shadow-md">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/payments.gif?height=400&width=600"
                   alt="Financial Tracking Feature"
                   width={600}
                   height={400}
@@ -205,7 +205,7 @@ export default function FeaturesPage() {
               </div>
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <Image
-                  src="/placeholder.svg?height=400&width=600"
+                  src="/ccdemo.gif?height=400&width=600"
                   alt="Learning Feature"
                   width={600}
                   height={400}
@@ -252,7 +252,7 @@ export default function FeaturesPage() {
               <div className="flex justify-center">
                 <div className="relative w-[280px] h-[560px] bg-white rounded-[40px] shadow-xl overflow-hidden border-8 border-gray-800">
                   <Image
-                    src="/placeholder.svg?height=560&width=280"
+                    src="/loader.png?height=560&width=280"
                     alt="SmartFin App"
                     width={280}
                     height={560}
