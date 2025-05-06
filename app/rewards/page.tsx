@@ -30,7 +30,7 @@ const rewardItems: RewardItem[] = [
     name: "SmartFin Branded Hoodie",
     description: "Cozy and stylish hoodie with the SmartFin logo. Perfect for late night study sessions.",
     points: 500,
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://img.freepik.com/premium-photo/blank-white-hoodie-front-back-view-mockup-isolated-white-background_986042-1023.jpg?w=2000",
     category: "clothing",
   },
   {
@@ -38,7 +38,7 @@ const rewardItems: RewardItem[] = [
     name: "$25 Amazon Gift Card",
     description: "Get anything you need with this $25 Amazon gift card. Digital delivery within 24 hours.",
     points: 2500,
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://www.lifewire.com/thmb/Tjb_XivCgAR7VFNpSvl3-lESBMI=/7200x0/filters:no_upscale():max_bytes(150000):strip_icc()/Amazon-Gift-Card-56a86f6d3df78cf7729e155d.jpg",
     category: "giftcards",
   },
   {
@@ -46,7 +46,7 @@ const rewardItems: RewardItem[] = [
     name: "Wireless Earbuds",
     description: "High-quality wireless earbuds for music, calls, and online classes. Includes charging case.",
     points: 3000,
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://images-na.ssl-images-amazon.com/images/I/71apwE6HGaL._AC_SL1500_.jpg",
     category: "tech",
   },
   {
@@ -54,7 +54,7 @@ const rewardItems: RewardItem[] = [
     name: "SmartFin T-Shirt",
     description: "Comfortable cotton t-shirt with the SmartFin logo.",
     points: 300,
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://static.vecteezy.com/system/resources/previews/020/067/692/original/3d-white-t-shirt-mockup-free-vector.jpg",
     category: "clothing",
   },
   {
@@ -62,7 +62,7 @@ const rewardItems: RewardItem[] = [
     name: "$10 Starbucks Gift Card",
     description: "Fuel your study sessions with coffee. Digital delivery within 24 hours.",
     points: 1000,
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://tse2.mm.bing.net/th?id=OIP.eLaKtcnjjgq2gyZIZ7_5EgHaEc&pid=Api&P=0&h=220",
     category: "giftcards",
   },
   {
@@ -70,7 +70,7 @@ const rewardItems: RewardItem[] = [
     name: "Portable Power Bank",
     description: "10,000mAh power bank to keep your devices charged on the go.",
     points: 1500,
-    image: "/placeholder.svg?height=300&width=300",
+    image: "https://wonderfulengineering.com/wp-content/uploads/2020/11/10-best-power-banks-2.jpg",
     category: "tech",
   },
 ]
