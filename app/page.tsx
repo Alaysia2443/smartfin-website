@@ -198,7 +198,7 @@ export default function Home() {
               {/* Testimonial 1 */}
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gray-200 rounded-full mr-4" />
+                 
                   <div>
                     <h4 className="font-bold">Alex Johnson</h4>
                     <p className="text-sm text-gray-500">UCLA, Class of 2023</p>
@@ -213,7 +213,7 @@ export default function Home() {
               {/* Testimonial 2 */}
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gray-200 rounded-full mr-4" />
+                  
                   <div>
                     <h4 className="font-bold">Taylor Smith</h4>
                     <p className="text-sm text-gray-500">NYU, Class of 2024</p>
@@ -228,7 +228,7 @@ export default function Home() {
               {/* Testimonial 3 */}
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <div className="flex items-center mb-4">
-                  <div className="w-12 h-12 bg-gray-200 rounded-full mr-4" />
+                
                   <div>
                     <h4 className="font-bold">Jordan Lee</h4>
                     <p className="text-sm text-gray-500">University of Michigan, Class of 2025</p>
