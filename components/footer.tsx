@@ -39,9 +39,14 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/blog" className="text-gray-400 hover:text-white transition-colors">
-                  Blog
-                </Link>
+              <a
+  href="https://www.linkedin.com/feed/update/urn:li:activity:7309646688321753089/"
+  className="text-gray-400 hover:text-white transition-colors"
+  target="_blank"          /* optional: opens link in new tab */
+  rel="noopener noreferrer"
+>
+  Blog
+</a>
               </li>
             </ul>
           </div>
@@ -50,19 +55,34 @@ export default function Footer() {
             <h3 className="text-lg font-semibold mb-4">Legal</h3>
             <ul className="space-y-2 text-sm">
               <li>
-                <Link href="/terms" className="text-gray-400 hover:text-white transition-colors">
-                  Terms of Service
-                </Link>
+              <a
+  href="https://venmo.com/legal/crypto-terms/"
+  className="text-gray-400 hover:text-white transition-colors"
+  target="_blank"          /* optional: opens link in new tab */
+  rel="noopener noreferrer"
+>
+  Terms of Service
+</a>
               </li>
               <li>
-                <Link href="/privacy" className="text-gray-400 hover:text-white transition-colors">
-                  Privacy Policy
-                </Link>
+              <a
+  href="https://venmo.com/legal/us-privacy-policy/"
+  className="text-gray-400 hover:text-white transition-colors"
+  target="_blank"          /* optional: opens link in new tab */
+  rel="noopener noreferrer"
+>
+  Privacy Policy
+</a>
               </li>
               <li>
-                <Link href="/cookies" className="text-gray-400 hover:text-white transition-colors">
-                  Cookie Policy
-                </Link>
+              <a
+  href="https://venmo.com/resources/cookies/"
+  className="text-gray-400 hover:text-white transition-colors"
+  target="_blank"          /* optional: opens link in new tab */
+  rel="noopener noreferrer"
+>
+  Cookie Policy
+</a>
               </li>
             </ul>
           </div>
@@ -70,22 +90,42 @@ export default function Footer() {
           <div>
             <h3 className="text-lg font-semibold mb-4">Connect</h3>
             <div className="flex space-x-4">
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Instagram className="h-6 w-6" />
-                <span className="sr-only">Instagram</span>
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Twitter className="h-6 w-6" />
-                <span className="sr-only">Twitter</span>
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Facebook className="h-6 w-6" />
-                <span className="sr-only">Facebook</span>
-              </Link>
-              <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-                <Linkedin className="h-6 w-6" />
-                <span className="sr-only">LinkedIn</span>
-              </Link>
+            <Link
+  href="https://www.instagram.com/venmo/?hl=en"
+  target="_blank"            // optional – remove if you want same‑tab
+  rel="noopener noreferrer"  // security best‑practice when using _blank
+  className="text-gray-400 hover:text-white transition-colors"
+>
+  <Instagram className="h-6 w-6" />
+  <span className="sr-only">Instagram</span>
+</Link>
+<Link
+  href="https://x.com/Venmo?ref_src=twsrc%5Egoogle%7Ctwcamp%5Eserp%7Ctwgr%5Eauthor"
+  target="_blank"            // optional – remove if you want same‑tab
+  rel="noopener noreferrer"  // security best‑practice when using _blank
+  className="text-gray-400 hover:text-white transition-colors"
+>
+  <Twitter className="h-6 w-6" />
+  <span className="sr-only">Twiiter</span>
+</Link>
+<Link
+  href="https://www.facebook.com/venmo/"
+  target="_blank"            // optional – remove if you want same‑tab
+  rel="noopener noreferrer"  // security best‑practice when using _blank
+  className="text-gray-400 hover:text-white transition-colors"
+>
+  <Facebook className="h-6 w-6" />
+  <span className="sr-only">Facebook</span>
+</Link>
+<Link
+  href="https://www.linkedin.com/company/venmo/"
+  target="_blank"            // optional – remove if you want same‑tab
+  rel="noopener noreferrer"  // security best‑practice when using _blank
+  className="text-gray-400 hover:text-white transition-colors"
+>
+  <Linkedin className="h-6 w-6" />
+  <span className="sr-only">Linkedin</span>
+</Link>
             </div>
             <div className="mt-4">
               <p className="text-sm text-gray-400">Subscribe to our newsletter</p>
