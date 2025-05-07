@@ -93,13 +93,18 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/login">
-                  <Button variant="outline" className="border-primary-500 text-primary-500 hover:bg-primary-50">
+                <Link href="/login" passHref>
+                  <Button
+                    variant="outline"
+                    className="border-primary-500 text-primary-500 hover:bg-primary-50"
+                  >
                     Log In
                   </Button>
                 </Link>
-                <Link href="/signup">
-                  <Button className="bg-primary-500 hover:bg-primary-600 text-white">Sign Up</Button>
+                <Link href="/signup" passHref>
+                  <Button className="bg-primary-500 hover:bg-primary-600 text-white">
+                    Sign Up
+                  </Button>
                 </Link>
               </>
             )}
