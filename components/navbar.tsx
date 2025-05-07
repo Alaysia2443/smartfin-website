@@ -93,17 +93,17 @@ export default function Navbar() {
               </>
             ) : (
               <>
-               <div className="space-x-4">
-                  <Button asChild variant="outline" className="border-primary-500 text-primary-500 hover:bg-primary-50">
-                    <Link href="/login">Log In</Link>
+                <Link href="/login">
+                  <Button variant="outline" className="border-primary-500 text-primary-500 hover:bg-primary-50">
+                    Log In
                   </Button>
-                  <Button asChild className="bg-primary-500 hover:bg-primary-600 text-white">
-                    <Link href="/signup">Sign Up</Link>
-                  </Button>
-               </div>
-
-                            
-             
+                </Link>
+                <Link href="/signup">
+                  <Button className="bg-primary-500 hover:bg-primary-600 text-white">Sign Up</Button>
+                </Link>
+              </>
+            )}
+          </div>
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-2">
