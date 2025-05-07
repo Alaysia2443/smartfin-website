@@ -93,22 +93,16 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <Link href="/login" passHref>
-                  <Button
-                    variant="outline"
-                    className="border-primary-500 text-primary-500 hover:bg-primary-50"
-                  >
-                    Log In
+                <div className="flex gap-4">
+                  <Button asChild variant="outline" className="border-primary-500 text-primary-500 hover:bg-primary-50">
+                    <Link href="/login">Log In</Link>
                   </Button>
-                </Link>
-                <Link href="/signup" passHref>
-                  <Button className="bg-primary-500 hover:bg-primary-600 text-white">
-                    Sign Up
+                  <Button asChild className="bg-primary-500 hover:bg-primary-600 text-white">
+                    <Link href="/signup">Sign Up</Link>
                   </Button>
-                </Link>
-              </>
-            )}
-          </div>
+                </div>
+                            
+             
 
           {/* Mobile menu button */}
           <div className="md:hidden flex items-center gap-2">
