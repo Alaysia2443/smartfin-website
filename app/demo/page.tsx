@@ -55,24 +55,25 @@ export default function DemoPage() {
             </div>
 
             <Tabs defaultValue="credit" className="max-w-4xl mx-auto">
-              <TabsList className="flex flex-col gap-2 md:flex-row md:justify-center">
-                <TabsTrigger value="credit" className="w-full flex items-center justify-center gap-2">
-                  <CreditCard className="h-4 w-4" />
-                  <span>Credit Building</span>
+              <TabsList className="block space-y-2 md:flex md:space-y-0 md:space-x-4 md:justify-center">
+                <TabsTrigger value="credit" className="block w-full text-center">
+                  <CreditCard className="inline-block h-4 w-4 mr-2" />
+                  Credit Building
                 </TabsTrigger>
-                <TabsTrigger value="tracking" className="w-full flex items-center justify-center gap-2">
-                  <TrendingUp className="h-4 w-4" />
-                  <span>Expense Tracking</span>
+                <TabsTrigger value="tracking" className="block w-full text-center">
+                  <TrendingUp className="inline-block h-4 w-4 mr-2" />
+                  Expense Tracking
                 </TabsTrigger>
-                <TabsTrigger value="rewards" className="w-full flex items-center justify-center gap-2">
-                  <Award className="h-4 w-4" />
-                  <span>Rewards</span>
+                <TabsTrigger value="rewards" className="block w-full text-center">
+                  <Award className="inline-block h-4 w-4 mr-2" />
+                  Rewards
                 </TabsTrigger>
-                <TabsTrigger value="education" className="w-full flex items-center justify-center gap-2">
-                  <BookOpen className="h-4 w-4" />
-                  <span>Education</span>
+                <TabsTrigger value="education" className="block w-full text-center">
+                  <BookOpen className="inline-block h-4 w-4 mr-2" />
+                  Education
                 </TabsTrigger>
               </TabsList>
+
 
 
 
