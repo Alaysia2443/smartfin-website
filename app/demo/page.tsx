@@ -37,18 +37,19 @@ export default function DemoPage() {
       See <span className="text-primary-500">SmartFin</span> in Action
     </h2>
     <p className="text-lg text-gray-800 dark:text-gray-200 max-w-3xl mx-auto">
-      Watch our demo video to see how SmartFin works and how it can help you build your financial future.
-    </p>
-  </div>
+  Watch our demo video to see how SmartFin works and how it can help you build your financial future.
+</p>
 
-            <div className="max-w-4xl mx-auto flex justify-center">
-            <div className="relative w-[280px] h-[560px] rounded-[40px] overflow-hidden shadow-xl border-8 border-gray-100">
-        <img
-                src="/SmartFinDemo.gif"       
-                alt="SmartFin Demo"
-                className="w-[280px] h-[550px]"
-              />
-        </div>
+{/* 32 px top margin → spacing between text & GIF */}
+<div className="max-w-4xl mx-auto flex justify-center mt-8">
+  <div className="relative w-[280px] h-[560px] rounded-[40px] overflow-hidden shadow-xl border-8 border-gray-100">
+    <img
+      src="/SmartFinDemo.gif"
+      alt="SmartFin Demo"
+      className="w-[280px] h-[550px]"
+    />
+  </div>
+</div>
             </div>
           </div>
         </section>
