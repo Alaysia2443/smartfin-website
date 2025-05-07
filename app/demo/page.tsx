@@ -55,20 +55,20 @@ export default function DemoPage() {
             </div>
 
             <Tabs defaultValue="credit" className="max-w-4xl mx-auto">
-              <TabsList className="flex flex-col md:flex-row gap-2 w-full">
-                <TabsTrigger value="credit" className="flex items-center justify-center gap-2 w-full">
+              <TabsList className="grid grid-cols-1 md:grid-cols-4 gap-2 w-full">
+                <TabsTrigger value="credit" className="w-full justify-center">
                   <CreditCard className="h-4 w-4" />
                   <span>Credit Building</span>
                 </TabsTrigger>
-                <TabsTrigger value="tracking" className="flex items-center justify-center gap-2 w-full">
+                <TabsTrigger value="tracking" className="w-full justify-center">
                   <TrendingUp className="h-4 w-4" />
                   <span>Expense Tracking</span>
                 </TabsTrigger>
-                <TabsTrigger value="rewards" className="flex items-center justify-center gap-2 w-full">
+                <TabsTrigger value="rewards" className="w-full justify-center">
                   <Award className="h-4 w-4" />
                   <span>Rewards</span>
                 </TabsTrigger>
-                <TabsTrigger value="education" className="flex items-center justify-center gap-2 w-full">
+                <TabsTrigger value="education" className="w-full justify-center">
                   <BookOpen className="h-4 w-4" />
                   <span>Education</span>
                 </TabsTrigger>
