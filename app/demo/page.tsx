@@ -19,18 +19,27 @@ export default function DemoPage() {
             <p className="text-lg max-w-3xl mx-auto">
               Experience how SmartFin helps college students build credit, track spending, and earn rewards.
             </p>
+            
           </div>
         </section>
 
         {/* Demo Video Section */}
-        <section className="py-16 md:py-24">
-          <div className="container mx-auto px-4 md:px-6">
-            <div className="text-center mb-12">
-              <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">See SmartFin in Action</h2>
-              <p className="text-lg text-gray-600 max-w-3xl mx-auto">
-                Watch our demo video to see how SmartFin works and how it can help you build your financial future.
-              </p>
-            </div>
+        <section className="py-21 md:py-21">
+          
+          <div className="relative py-16 md:py-24 bg-center bg-cover"
+  style={{ backgroundImage: "url('/working.png')" }}   /* adjust path if needed */
+><div className="absolute inset-0 bg-black/25 pointer-events-none" />
+  {/* subtle overlay improves contrast without hiding the photo */}
+  <div className="absolute inset-0 bg-white/70 dark:bg-black/60" />
+
+  <div className="relative z-10 text-center px-4">
+    <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">
+      See <span className="text-primary-500">SmartFin</span> in Action
+    </h2>
+    <p className="text-lg text-gray-800 dark:text-gray-200 max-w-3xl mx-auto">
+      Watch our demo video to see how SmartFin works and how it can help you build your financial future.
+    </p>
+  </div>
 
             <div className="max-w-4xl mx-auto flex justify-center">
             <div className="relative w-[280px] h-[560px] rounded-[40px] overflow-hidden shadow-xl border-8 border-gray-100">
