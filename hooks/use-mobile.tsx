@@ -1,19 +1,35 @@
-import * as React from "react"
+import { useEffect, useState } from "react"
 
-const MOBILE_BREAKPOINT = 768
+const MOBILE_BREAKPOINT = 768        // < 768 px = “mobile”
 
-export function useIsMobile() {
-  const [isMobile, setIsMobile] = React.useState<boolean | undefined>(undefined)
+export function useIsMobile(): boolean {
+  // Default to false so there’s no hydration mismatch in Next.js
+  const [isMobile, setIsMobile] = useState(false)
 
-  React.useEffect(() => {
-    const mql = window.matchMedia(`(max-width: ${MOBILE_BREAKPOINT - 1}px)`)
-    const onChange = () => {
-      setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
+  useEffect(() => {
+    // Guard against SSR / Node
+    if (typeof window === "undefined") return
+
+    const query = `(max-width: ${MOBILE_BREAKPOINT - 1}px)`
+    const mediaQuery = window.matchMedia(query)
+
+    const handleChange = (e: MediaQueryListEvent | MediaQueryList) =>
+      setIsMobile(e.matches)
+
+    // Set initial value
+    handleChange(mediaQuery)
+
+    // Add/remove listener (Safari <14 uses addListener/removeListener)
+    if (mediaQuery.addEventListener) {
+      mediaQuery.addEventListener("change", handleChange)
+      return () => mediaQuery.removeEventListener("change", handleChange)
+    } else {
+      // @ts-ignore — legacy fallback
+      mediaQuery.addListener(handleChange)
+      // @ts-ignore
+      return () => mediaQuery.removeListener(handleChange)
     }
-    mql.addEventListener("change", onChange)
-    setIsMobile(window.innerWidth < MOBILE_BREAKPOINT)
-    return () => mql.removeEventListener("change", onChange)
   }, [])
 
-  return !!isMobile
+  return isMobile
 }
