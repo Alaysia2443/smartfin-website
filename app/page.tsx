@@ -20,7 +20,8 @@ export default function Home() {
   style={{ backgroundImage: "url('/girlphone.png')" }}   // adjust path if needed
 >
   {/* subtle dark overlay for contrast */}
-  <div className="absolute inset-0 bg-black/35" />
+  <div className="absolute inset-0 bg-black/25 pointer-events-none" />
+  
 
   <div className="relative z-10 container mx-auto px-4 md:px-6">
     <div className="grid md:grid-cols-2 gap-12 items-center">

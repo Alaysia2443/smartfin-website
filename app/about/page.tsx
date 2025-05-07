@@ -23,7 +23,7 @@ export default function AboutPage() {
   style={{ backgroundImage: "url('/students.png')" }}   // adjust path if needed
 >
   {/* dark overlay for contrast */}
-  <div className="absolute inset-0 bg-black/40" />
+  <div className="absolute inset-0 bg-black/25 pointer-events-none" />
 
   {/* text content */}
   <div className="relative z-10 flex flex-col items-center justify-center text-center px-4">
