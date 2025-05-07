@@ -1,4 +1,4 @@
-## Smartfin
+## SmartFin
 
 This project was submitted as a final assignment for the Building Startup Systems course at Cornell Tech for the Sprint 2025 semester. 
 
@@ -10,7 +10,7 @@ As a team, we worked together to develop the following components on our website
 - HTML is standards-conform and well-structured (e.g. avoids unnecessarily nested divs)
 - CSS ensures no content is cut off or unreadable on all screen sizes, from phones to desktop screens.
 - The website's components' styling is consistent.
-(e.g. when using a component library, any custom components you build fit with the UI library's style.)
+(e.g. when using a component library, any custom components we build fit with the UI library's style.)
 - The web app is optimized — not just functional — for a variety of different screen sizes, such as a smartphone
 - The web app uses animation and transitions tastefully where appropriate
 - The web app uses custom CSS keyframe animations
@@ -31,7 +31,7 @@ and centralizes data into a single source of truth
 - The web app allows a user to persist their data in the app.
 - The web app doesn't expose one user's data to other users.
 - The web app has a server backend that allows each user to access their own data using user accounts.
-- The web app uses OAuth not just for authentication, but for accessing a third party's API on behalf of your users.
+- The web app uses OAuth not just for authentication, but for accessing a third party's API on behalf of our users.
 
 
 ### Deployment/DevOps
