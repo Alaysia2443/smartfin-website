@@ -93,14 +93,15 @@ export default function Navbar() {
               </>
             ) : (
               <>
-                <div className="flex gap-4">
+               <div className="space-x-4">
                   <Button asChild variant="outline" className="border-primary-500 text-primary-500 hover:bg-primary-50">
                     <Link href="/login">Log In</Link>
                   </Button>
                   <Button asChild className="bg-primary-500 hover:bg-primary-600 text-white">
                     <Link href="/signup">Sign Up</Link>
                   </Button>
-                </div>
+               </div>
+
                             
              
 
