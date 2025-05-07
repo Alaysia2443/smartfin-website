@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import Image from "next/image"
+import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { TrendingUp, Award, CreditCard, Users, BookOpen, BarChartIcon as ChartBar } from "lucide-react"
 
@@ -129,28 +130,28 @@ export default function FeaturesPage() {
                   </li>
                 </ul>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <Image
-                  src="/advice.gif?height=400&width=600"
-                  alt="Credit Building Feature"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto rounded-lg"
-                />
-              </div>
+              <div className="bg-white p-4 rounded-lg shadow-md max-w-xs mx-auto">
+  <Image
+    src="/advice.gif"     /* drop the query params—they’re not needed */
+    alt="Credit Building Feature"
+    width={320}           /* was 600 → now 320 px wide  */
+    height={214}          /* keeps 16 : 10 aspect ratio */
+    className="w-full h-auto rounded-lg"
+  />
+</div>
             </div>
 
             {/* Feature 2 */}
             <div className="grid md:grid-cols-2 gap-12 items-center mb-24">
-              <div className="order-2 md:order-1 bg-white p-6 rounded-lg shadow-md">
-                <Image
-                  src="/payments.gif?height=400&width=600"
-                  alt="Financial Tracking Feature"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto rounded-lg"
-                />
-              </div>
+            <div className="bg-white p-4 rounded-lg shadow-md max-w-xs mx-auto">
+  <Image
+    src="/payments.gif"     /* drop the query params—they’re not needed */
+    alt="Credit Building Feature"
+    width={320}           /* was 600 → now 320 px wide  */
+    height={214}          /* keeps 16 : 10 aspect ratio */
+    className="w-full h-auto rounded-lg"
+  />
+</div>
               <div className="order-1 md:order-2">
                 <div className="w-12 h-12 rounded-full bg-primary-500 flex items-center justify-center text-white mb-6">
                   <TrendingUp className="h-6 w-6" />
@@ -203,15 +204,15 @@ export default function FeaturesPage() {
                   </li>
                 </ul>
               </div>
-              <div className="bg-white p-6 rounded-lg shadow-md">
-                <Image
-                  src="/ccdemo.gif?height=400&width=600"
-                  alt="Learning Feature"
-                  width={600}
-                  height={400}
-                  className="w-full h-auto rounded-lg"
-                />
-              </div>
+              <div className="bg-white p-4 rounded-lg shadow-md max-w-xs mx-auto">
+  <Image
+    src="/ccdemo.gif"     /* drop the query params—they’re not needed */
+    alt="Credit Building Feature"
+    width={320}           /* was 600 → now 320 px wide  */
+    height={214}          /* keeps 16 : 10 aspect ratio */
+    className="w-full h-auto rounded-lg"
+  />
+</div>
             </div>
           </div>
         </section>
@@ -227,26 +228,38 @@ export default function FeaturesPage() {
                   Android.
                 </p>
                 <div className="flex flex-wrap gap-4">
-                  <Button className="bg-white text-secondary hover:bg-gray-100">
-                    <Image
-                      src="/placeholder.svg?height=24&width=24"
-                      alt="Apple"
-                      width={24}
-                      height={24}
-                      className="mr-2"
-                    />
-                    Download for iOS
-                  </Button>
-                  <Button className="bg-white text-secondary hover:bg-gray-100">
-                    <Image
-                      src="/placeholder.svg?height=24&width=24"
-                      alt="Android"
-                      width={24}
-                      height={24}
-                      className="mr-2"
-                    />
-                    Download for Android
-                  </Button>
+                <Link
+  href="https://apps.apple.com/us/app/venmo/id351727428"
+  target="_blank"            // optional – remove if you want same‑tab
+  rel="noopener noreferrer"  // security best‑practice with _blank
+>
+  <Button className="bg-white text-secondary hover:bg-gray-100 flex items-center">
+    <Image
+      src="/ap.png?height=24&width=24"  /* replace if you have an Apple icon */
+      alt="Apple App Store"
+      width={24}
+      height={24}
+      className="mr-2"
+    />
+    Download&nbsp;for&nbsp;iOS
+  </Button>
+</Link>
+<Link
+  href="https://play.google.com/store/apps/details?id=com.venmo&hl=en_US"
+  target="_blank"            // optional – remove if you want same‑tab
+  rel="noopener noreferrer"  // security best‑practice with _blank
+>
+  <Button className="bg-white text-secondary hover:bg-gray-100 flex items-center">
+    <Image
+      src="/gp.png?height=24&width=24"  /* replace if you have an Apple icon */
+      alt="Google Play Store"
+      width={24}
+      height={24}
+      className="mr-2"
+    />
+    Download&nbsp;for&nbsp;Android
+  </Button>
+</Link>
                 </div>
               </div>
               <div className="flex justify-center">
