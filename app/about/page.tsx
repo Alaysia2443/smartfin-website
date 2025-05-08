@@ -88,7 +88,7 @@ export default function AboutPage() {
                 SmartFin aims to improve student financial health by teaching students how comprehensive credit
                 management plans provide healthy spending habits, and how to build community around financial literacy.
               </p>
-              <Button className="bg-white text-primary-500 hover:bg-gray-100">Join Our Mission</Button>
+             
             </div>
 
             <div className="grid md:grid-cols-2 gap-8">
