@@ -8,7 +8,7 @@ export const createUser = async (userData: CreateUserDTO): Promise<User> => {
     
     const query = `
       INSERT INTO users (first_name, last_name, email, password, points)
-      VALUES ($1, $2, $3, $4, 0)
+      VALUES ($1, $2, $3, $4, 1000)
       RETURNING *
     `;
     

@@ -2,9 +2,9 @@ import { Pool } from 'pg';
 
 const pool = new Pool({
   connectionString: process.env.POSTGRES_URL_NON_POOLING,
-  ssl: process.env.NODE_ENV === 'production' ? {
+  ssl: {
     rejectUnauthorized: false
-  } : false
+  }
 });
 
 //test the connection
