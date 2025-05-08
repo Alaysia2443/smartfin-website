@@ -6,13 +6,15 @@ import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { useToast } from "@/components/ui/use-toast"
-import { useAuth } from "@/lib/auth"
+import { useAuth } from "@/components/auth-provider"
 import Navbar from "@/components/navbar"
 import Footer from "@/components/footer"
 import { Github, Mail } from "lucide-react"
 import { signIn } from "next-auth/react"
 
 export default function LoginPage() {
+  const { loginWithGithub, loginWithGoogle } = useAuth()
+
   const router = useRouter()
   const { login } = useAuth()
   const { toast } = useToast()
@@ -112,7 +114,7 @@ export default function LoginPage() {
                 <Button
                   variant="outline"
                   className="border-primary-500 text-primary-500 hover:bg-primary-50"
-                  onClick={() => signIn("google", { callbackUrl: "/rewards" })}
+                  onClick={() => loginWithGoogle()}
                 >
                   <Mail className="mr-2 h-4 w-4" />
                   Google
@@ -120,7 +122,7 @@ export default function LoginPage() {
                 <Button
                   variant="outline"
                   className="border-primary-500 text-primary-500 hover:bg-primary-50"
-                  onClick={() => signIn("github", { callbackUrl: "/rewards" })}
+                  onClick={() => loginWithGithub()}
                 >
                   <Github className="mr-2 h-4 w-4" />
                   GitHub
