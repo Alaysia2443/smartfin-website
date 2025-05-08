@@ -62,7 +62,7 @@ const rewardItems: RewardItem[] = [
     name: "$10 Starbucks Gift Card",
     description: "Fuel your study sessions with coffee. Digital delivery within 24 hours.",
     points: 1000,
-    image: "https://tse2.mm.bing.net/th?id=OIP.eLaKtcnjjgq2gyZIZ7_5EgHaEc&pid=Api&P=0&h=220",
+    image: "https://globalassets.starbucks.com/digitalassets/cards/fy20/BrailleFY20.jpg",
     category: "giftcards",
   },
   {

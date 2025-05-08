@@ -44,13 +44,8 @@ export default function FeaturesPage() {
                   SmartFin offers rewards for each purchase you make. Complete financial education modules to earn
                   additional points that can be redeemed for gift cards and merchandise.
                 </p>
-                <div className="bg-gray-100 rounded-lg p-4">
-                  <div className="w-full h-32 bg-gray-200 rounded-md"></div>
-                  <div className="mt-2 flex justify-between">
-                    <div className="text-sm text-primary-500 font-bold">500 Points</div>
-                    <div className="text-sm text-gray-500">Earned</div>
-                  </div>
-                </div>
+                
+                
               </div>
 
               {/* Financial Insights */}
@@ -63,13 +58,8 @@ export default function FeaturesPage() {
                   Track spending, set up automatic savings for your financial goals, and get personalized insights on
                   your spending patterns and financial health.
                 </p>
-                <div className="bg-gray-100 rounded-lg p-4">
-                  <div className="w-full h-32 bg-gray-200 rounded-md"></div>
-                  <div className="mt-2 flex justify-between">
-                    <div className="text-sm text-primary-500 font-bold">$500</div>
-                    <div className="text-sm text-gray-500">Saved</div>
-                  </div>
-                </div>
+              
+                  
               </div>
 
               {/* Smart Support */}
@@ -82,13 +72,7 @@ export default function FeaturesPage() {
                   Connect with peers and mentors to create a real community around financial literacy. Get advice and
                   support through the app.
                 </p>
-                <div className="bg-gray-100 rounded-lg p-4">
-                  <div className="w-full h-32 bg-gray-200 rounded-md"></div>
-                  <div className="mt-2 flex justify-between">
-                    <div className="text-sm text-primary-500 font-bold">24/7</div>
-                    <div className="text-sm text-gray-500">Support</div>
-                  </div>
-                </div>
+              
               </div>
             </div>
           </div>

@@ -151,15 +151,7 @@ export default function AboutPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
               <div className="bg-white rounded-lg overflow-hidden shadow-md">
-                <div className="aspect-square bg-gray-200">
-                  <Image
-                    src="/placeholder.svg?height=300&width=300"
-                    alt="Alaysia Reape"
-                    width={300}
-                    height={300}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                
                 <div className="p-4">
                   <h3 className="font-bold text-lg">Alaysia Reape</h3>
                   <p className="text-gray-500 text-sm">Frontend Developer</p>
@@ -167,15 +159,7 @@ export default function AboutPage() {
               </div>
 
               <div className="bg-white rounded-lg overflow-hidden shadow-md">
-                <div className="aspect-square bg-gray-200">
-                  <Image
-                    src="/placeholder.svg?height=300&width=300"
-                    alt="Noor EL-Hawwat"
-                    width={300}
-                    height={300}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                
                 <div className="p-4">
                   <h3 className="font-bold text-lg">Noor EL-Hawwat</h3>
                   <p className="text-gray-500 text-sm">Frontend Developer</p>
@@ -183,15 +167,7 @@ export default function AboutPage() {
               </div>
 
               <div className="bg-white rounded-lg overflow-hidden shadow-md">
-                <div className="aspect-square bg-gray-200">
-                  <Image
-                    src="/placeholder.svg?height=300&width=300"
-                    alt="Aimalohi Alakhume"
-                    width={300}
-                    height={300}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                
                 <div className="p-4">
                   <h3 className="font-bold text-lg">Michael Meng</h3>
                   <p className="text-gray-500 text-sm">Backend Developer</p>
@@ -199,15 +175,7 @@ export default function AboutPage() {
               </div>
 
               <div className="bg-white rounded-lg overflow-hidden shadow-md">
-                <div className="aspect-square bg-gray-200">
-                  <Image
-                    src="/placeholder.svg?height=300&width=300"
-                    alt="Michael Meng"
-                    width={300}
-                    height={300}
-                    className="w-full h-full object-cover"
-                  />
-                </div>
+                
                 <div className="p-4">
                   <h3 className="font-bold text-lg">Aimalohi Alakhume</h3>
                   <p className="text-gray-500 text-sm">Backend Developer</p>
