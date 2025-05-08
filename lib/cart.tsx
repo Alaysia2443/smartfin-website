@@ -1,9 +1,9 @@
 "use client"
 
 import type React from "react"
-
 import { createContext, useContext, useState, useEffect } from "react"
 import { useToast } from "@/components/ui/use-toast"
+import { useAuth } from "@/lib/auth"  // ✅ import your auth hook
 
 // Cart item type
 export type CartItem = {
@@ -27,32 +27,40 @@ type CartContextType = {
 // Create context
 const CartContext = createContext<CartContextType | undefined>(undefined)
 
-// Cart provider component
+// Cart provider
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
   const { toast } = useToast()
+  const { user } = useAuth() // ✅ get current user
 
-  // Load cart from localStorage on mount
+  // Load cart when user changes
   useEffect(() => {
-    const storedCart = localStorage.getItem("smartfin_cart")
-    if (storedCart) {
-      setCartItems(JSON.parse(storedCart))
+    if (user) {
+      const storedCart = localStorage.getItem(`cart_${user.id}`)
+      if (storedCart) {
+        setCartItems(JSON.parse(storedCart))
+      } else {
+        setCartItems([]) // initialize empty if no saved cart
+      }
+    } else {
+      // User logged out → clear cart from memory
+      setCartItems([])
     }
-  }, [])
+  }, [user])
 
-  // Save cart to localStorage whenever it changes
+  // Save cart when cartItems or user changes
   useEffect(() => {
-    localStorage.setItem("smartfin_cart", JSON.stringify(cartItems))
-  }, [cartItems])
+    if (user) {
+      localStorage.setItem(`cart_${user.id}`, JSON.stringify(cartItems))
+    }
+  }, [cartItems, user])
 
   // Add item to cart
   const addToCart = (item: Omit<CartItem, "quantity">) => {
     setCartItems((prevItems) => {
-      // Check if item already exists in cart
       const existingItemIndex = prevItems.findIndex((i) => i.id === item.id)
 
       if (existingItemIndex !== -1) {
-        // Update quantity of existing item
         const updatedItems = [...prevItems]
         updatedItems[existingItemIndex] = {
           ...updatedItems[existingItemIndex],
@@ -67,7 +75,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
 
         return updatedItems
       } else {
-        // Add new item with quantity 1
         toast({
           title: "Item added to cart",
           description: `${item.name} added to your cart`,
@@ -79,7 +86,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     })
   }
 
-  // Remove item from cart
   const removeFromCart = (itemId: string) => {
     setCartItems((prevItems) => {
       const item = prevItems.find((i) => i.id === itemId)
@@ -94,9 +100,11 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     })
   }
 
-  // Clear cart
   const clearCart = () => {
     setCartItems([])
+    if (user) {
+      localStorage.removeItem(`cart_${user.id}`)  // ✅ clear stored cart too
+    }
     toast({
       title: "Cart cleared",
       description: "All items have been removed from your cart",
@@ -104,14 +112,14 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     })
   }
 
-  // Update item quantity
   const updateQuantity = (itemId: string, quantity: number) => {
     if (quantity < 1) return
 
-    setCartItems((prevItems) => prevItems.map((item) => (item.id === itemId ? { ...item, quantity } : item)))
+    setCartItems((prevItems) =>
+      prevItems.map((item) => (item.id === itemId ? { ...item, quantity } : item))
+    )
   }
 
-  // Calculate total points
   const getTotalPoints = () => {
     return cartItems.reduce((total, item) => total + item.points * item.quantity, 0)
   }
@@ -132,7 +140,7 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   )
 }
 
-// Custom hook to use cart context
+// Custom hook
 export function useCart() {
   const context = useContext(CartContext)
   if (context === undefined) {
