@@ -1,8 +1,8 @@
 "use client"
 
 import type React from "react"
-
 import { createContext, useContext, useState, useEffect } from "react"
+import { signIn, signOut, useSession } from "next-auth/react"
 
 // User type
 type User = {
@@ -11,6 +11,7 @@ type User = {
   firstName: string
   lastName: string
   points: number
+  image?: string
 }
 
 // Auth context type
@@ -21,6 +22,8 @@ type AuthContextType = {
   signup: (email: string, password: string, firstName: string, lastName: string) => Promise<void>
   logout: () => void
   updateUserPoints: (newPoints: number) => void
+  loginWithGithub: () => Promise<void>
+  loginWithGoogle: () => Promise<void>
 }
 
 // Create context
@@ -42,17 +45,44 @@ const mockUserDB = [
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
   const [isLoading, setIsLoading] = useState(true)
+  const { data: session, status } = useSession()
 
   // Check for existing session on mount
   useEffect(() => {
-    const storedUser = localStorage.getItem("smartfin_user")
-    if (storedUser) {
-      setUser(JSON.parse(storedUser))
+    if (status === "loading") return
+    
+    if (session?.user) {
+      // Create user from OAuth session
+      const oauthUser: User = {
+        id: session.user.id || session.user.email || Date.now().toString(),
+        email: session.user.email || "",
+        firstName: session.user.name?.split(" ")[0] || "",
+        lastName: session.user.name?.split(" ").slice(1).join(" ") || "",
+        points: 1000, // Default points for new OAuth users
+        image: session.user.image || undefined
+      }
+      setUser(oauthUser)
+    } else {
+      // Check for local storage user if no OAuth session
+      const storedUser = localStorage.getItem("smartfin_user")
+      if (storedUser) {
+        setUser(JSON.parse(storedUser))
+      }
     }
     setIsLoading(false)
-  }, [])
+  }, [session, status])
 
-  // Login function
+  // Login with GitHub
+  const loginWithGithub = async () => {
+    await signIn("github", { callbackUrl: "/rewards" })
+  }
+
+  // Login with Google
+  const loginWithGoogle = async () => {
+    await signIn("google", { callbackUrl: "/rewards" })
+  }
+
+  // Login function (email/password)
   const login = async (email: string, password: string) => {
     // Find user in our mock database
     const foundUser = mockUserDB.find((u) => u.email === email && u.password === password)
@@ -101,7 +131,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   // Logout function
   const logout = () => {
     // Before logging out, make sure to update the user's data in the mock database
-    if (user) {
+    if (user && !session) {
       const userIndex = mockUserDB.findIndex((u) => u.id === user.id)
       if (userIndex !== -1) {
         // Update points in the mock database
@@ -110,10 +140,15 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           points: user.points,
         }
       }
+      localStorage.removeItem("smartfin_user")
     }
-
-    setUser(null)
-    localStorage.removeItem("smartfin_user")
+    
+    // If using NextAuth session, sign out
+    if (session) {
+      signOut({ callbackUrl: "/" })
+    } else {
+      setUser(null)
+    }
   }
 
   // Update user points
@@ -121,23 +156,39 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
     if (user) {
       const updatedUser = { ...user, points: newPoints }
 
-      // Update in state and localStorage
+      // Update in state
       setUser(updatedUser)
-      localStorage.setItem("smartfin_user", JSON.stringify(updatedUser))
+      
+      // If not OAuth user, update localStorage
+      if (!session) {
+        localStorage.setItem("smartfin_user", JSON.stringify(updatedUser))
 
-      // Also update in our mock database for persistence
-      const userIndex = mockUserDB.findIndex((u) => u.id === user.id)
-      if (userIndex !== -1) {
-        mockUserDB[userIndex] = {
-          ...mockUserDB[userIndex],
-          points: newPoints,
+        // Also update in our mock database for persistence
+        const userIndex = mockUserDB.findIndex((u) => u.id === user.id)
+        if (userIndex !== -1) {
+          mockUserDB[userIndex] = {
+            ...mockUserDB[userIndex],
+            points: newPoints,
+          }
         }
       }
+      // For OAuth users, you would update points in your database here
     }
   }
 
   return (
-    <AuthContext.Provider value={{ user, isLoading, login, signup, logout, updateUserPoints }}>
+    <AuthContext.Provider 
+      value={{ 
+        user, 
+        isLoading, 
+        login, 
+        signup, 
+        logout, 
+        updateUserPoints,
+        loginWithGithub,
+        loginWithGoogle
+      }}
+    >
       {children}
     </AuthContext.Provider>
   )

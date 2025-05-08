@@ -5,7 +5,6 @@ import type React from "react"
 import { createContext, useContext, useState, useEffect } from "react"
 import { useToast } from "@/components/ui/use-toast"
 
-// Cart item type
 export type CartItem = {
   id: string
   name: string
@@ -14,7 +13,7 @@ export type CartItem = {
   quantity: number
 }
 
-// Cart context type
+
 type CartContextType = {
   cartItems: CartItem[]
   addToCart: (item: Omit<CartItem, "quantity">) => void
@@ -24,15 +23,12 @@ type CartContextType = {
   getTotalPoints: () => number
 }
 
-// Create context
 const CartContext = createContext<CartContextType | undefined>(undefined)
 
-// Cart provider component
 export function CartProvider({ children }: { children: React.ReactNode }) {
   const [cartItems, setCartItems] = useState<CartItem[]>([])
   const { toast } = useToast()
 
-  // Load cart from localStorage on mount
   useEffect(() => {
     const storedCart = localStorage.getItem("smartfin_cart")
     if (storedCart) {
@@ -40,12 +36,10 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     }
   }, [])
 
-  // Save cart to localStorage whenever it changes
   useEffect(() => {
     localStorage.setItem("smartfin_cart", JSON.stringify(cartItems))
   }, [cartItems])
 
-  // Add item to cart
   const addToCart = (item: Omit<CartItem, "quantity">) => {
     setCartItems((prevItems) => {
       // Check if item already exists in cart
@@ -94,7 +88,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     })
   }
 
-  // Clear cart
   const clearCart = () => {
     setCartItems([])
     toast({
@@ -104,14 +97,12 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
     })
   }
 
-  // Update item quantity
   const updateQuantity = (itemId: string, quantity: number) => {
     if (quantity < 1) return
 
     setCartItems((prevItems) => prevItems.map((item) => (item.id === itemId ? { ...item, quantity } : item)))
   }
 
-  // Calculate total points
   const getTotalPoints = () => {
     return cartItems.reduce((total, item) => total + item.points * item.quantity, 0)
   }
@@ -132,7 +123,6 @@ export function CartProvider({ children }: { children: React.ReactNode }) {
   )
 }
 
-// Custom hook to use cart context
 export function useCart() {
   const context = useContext(CartContext)
   if (context === undefined) {
