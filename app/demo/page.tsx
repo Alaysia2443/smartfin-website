@@ -17,7 +17,7 @@ export default function DemoPage() {
           <div className="container mx-auto px-4 md:px-6 text-center">
             <h1 className="text-3xl md:text-5xl font-bold mb-4 font-display">SmartFin Demo</h1>
             <p className="text-lg max-w-3xl mx-auto">
-              Experience how SmartFin helps college students build credit and track spending.
+              Experience how SmartFin helps college students earn rewards and track spending.
             </p>
             
           </div>
