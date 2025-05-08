@@ -112,6 +112,7 @@ export default function RewardsPage() {
       })
     } else {
       toast({
+        
         title: "Insufficient Points",
         description: `You need ${item.points - user.points} more points to add this item to your cart.`,
         variant: "destructive",
