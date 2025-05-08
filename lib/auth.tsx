@@ -57,8 +57,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
 
       const userData = await response.json()
-      setUser(userData)
-      localStorage.setItem("smartfin_user", JSON.stringify(userData))
+      // Transform the data to match frontend structure
+      const transformedUser = {
+        id: userData.id.toString(),
+        email: userData.email,
+        firstName: userData.first_name,
+        lastName: userData.last_name,
+        points: userData.points
+      }
+      setUser(transformedUser)
+      localStorage.setItem("smartfin_user", JSON.stringify(transformedUser))
     } catch (error) {
       throw error
     }
@@ -86,8 +94,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       }
 
       const userData = await response.json()
-      setUser(userData)
-      localStorage.setItem("smartfin_user", JSON.stringify(userData))
+      // Transform the data to match frontend structure
+      const transformedUser = {
+        id: userData.id.toString(),
+        email: userData.email,
+        firstName: userData.first_name,
+        lastName: userData.last_name,
+        points: userData.points
+      }
+      setUser(transformedUser)
+      localStorage.setItem("smartfin_user", JSON.stringify(transformedUser))
     } catch (error) {
       throw error
     }
@@ -116,9 +132,17 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         throw new Error('Failed to update points')
       }
 
-      const updatedUser = await response.json()
-      setUser(updatedUser)
-      localStorage.setItem("smartfin_user", JSON.stringify(updatedUser))
+      const userData = await response.json()
+      // Transform the data to match frontend structure
+      const transformedUser = {
+        id: userData.id.toString(),
+        email: userData.email,
+        firstName: userData.first_name,
+        lastName: userData.last_name,
+        points: userData.points
+      }
+      setUser(transformedUser)
+      localStorage.setItem("smartfin_user", JSON.stringify(transformedUser))
     } catch (error) {
       console.error('Error updating points:', error)
       throw error
