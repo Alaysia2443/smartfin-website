@@ -26,18 +26,6 @@ type AuthContextType = {
 // Create context
 const AuthContext = createContext<AuthContextType | undefined>(undefined)
 
-// Mock user database (in a real app, this would be a database)
-const mockUserDB = [
-  {
-    id: "1",
-    email: "test@example.com",
-    password: "password",
-    firstName: "Test",
-    lastName: "User",
-    points: 1000,
-  },
-]
-
 // Auth provider component
 export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null)
@@ -54,86 +42,86 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   // Login function
   const login = async (email: string, password: string) => {
-    // Find user in our mock database
-    const foundUser = mockUserDB.find((u) => u.email === email && u.password === password)
+    try {
+      const response = await fetch('/api/auth/login', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ email, password }),
+      })
 
-    if (!foundUser) {
-      throw new Error("Invalid credentials")
+      if (!response.ok) {
+        const error = await response.json()
+        throw new Error(error.message || 'Invalid credentials')
+      }
+
+      const userData = await response.json()
+      setUser(userData)
+      localStorage.setItem("smartfin_user", JSON.stringify(userData))
+    } catch (error) {
+      throw error
     }
-
-    // Get user without password
-    const { password: _, ...userWithoutPassword } = foundUser
-
-    // Update the mock database with any changes that might have happened
-    // This ensures points persistence between sessions
-    const updatedUser = { ...userWithoutPassword }
-
-    setUser(updatedUser)
-    localStorage.setItem("smartfin_user", JSON.stringify(updatedUser))
   }
 
   // Signup function
   const signup = async (email: string, password: string, firstName: string, lastName: string) => {
-    // Check if user already exists
-    if (mockUserDB.some((u) => u.email === email)) {
-      throw new Error("User already exists")
+    try {
+      const response = await fetch('/api/users', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          email,
+          password,
+          first_name: firstName,
+          last_name: lastName,
+        }),
+      })
+
+      if (!response.ok) {
+        const error = await response.json()
+        throw new Error(error.message || 'Failed to create account')
+      }
+
+      const userData = await response.json()
+      setUser(userData)
+      localStorage.setItem("smartfin_user", JSON.stringify(userData))
+    } catch (error) {
+      throw error
     }
-
-    // Create new user
-    const newUser = {
-      id: Date.now().toString(),
-      email,
-      password,
-      firstName,
-      lastName,
-      points: 1000, // Start with 1000 points
-    }
-
-    // Add to mock database
-    mockUserDB.push(newUser)
-
-    // Set user without password
-    const { password: _, ...userWithoutPassword } = newUser
-    setUser(userWithoutPassword)
-    localStorage.setItem("smartfin_user", JSON.stringify(userWithoutPassword))
   }
 
   // Logout function
   const logout = () => {
-    // Before logging out, make sure to update the user's data in the mock database
-    if (user) {
-      const userIndex = mockUserDB.findIndex((u) => u.id === user.id)
-      if (userIndex !== -1) {
-        // Update points in the mock database
-        mockUserDB[userIndex] = {
-          ...mockUserDB[userIndex],
-          points: user.points,
-        }
-      }
-    }
-  
-
     setUser(null)
     localStorage.removeItem("smartfin_user")
   }
 
   // Update user points
-  const updateUserPoints = (newPoints: number) => {
-    if (user) {
-      const updatedUser = { ...user, points: newPoints }
+  const updateUserPoints = async (newPoints: number) => {
+    if (!user) return
 
-      // Update in state and localStorage
+    try {
+      const response = await fetch(`/api/users?id=${user.id}`, {
+        method: 'PUT',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ points: newPoints }),
+      })
+
+      if (!response.ok) {
+        throw new Error('Failed to update points')
+      }
+
+      const updatedUser = await response.json()
       setUser(updatedUser)
       localStorage.setItem("smartfin_user", JSON.stringify(updatedUser))
-
-      // Also update in our mock database for persistence
-      const userIndex = mockUserDB.findIndex((u) => u.id === user.id)
-      if (userIndex !== -1) {
-        mockUserDB[userIndex] = {
-          ...mockUserDB[userIndex],
-          points: newPoints,
-        }
-      }
+    } catch (error) {
+      console.error('Error updating points:', error)
+      throw error
     }
   }
 
