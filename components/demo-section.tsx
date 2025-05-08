@@ -5,9 +5,6 @@ export default function DemoSection() {
   return (
     <section className="py-16 md:py-24 bg-[#f8f7f4]">
       <div className="container mx-auto px-4 md:px-6">
-        <div className="text-center mb-12">
-          {/* optional other header content */}
-        </div>
 
         <div className="max-w-4xl mx-auto text-center">
           <h3 className="text-2xl font-bold font-display mb-8">How SmartFin Works</h3>
