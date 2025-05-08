@@ -178,7 +178,7 @@ export default function Home() {
 
               <Link href="/demo">
                 <Button size="lg" variant="outline" className="border-primary-500 text-primary-500">
-                  Learn More
+                  Explore Features
                 </Button>
               </Link>
             </div>
