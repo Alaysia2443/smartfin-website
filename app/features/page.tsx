@@ -116,10 +116,10 @@ export default function FeaturesPage() {
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md max-w-xs mx-auto">
   <Image
-    src="/advice.gif"     /* drop the query params—they’re not needed */
+    src="/advice.gif"
     alt="Credit Building Feature"
-    width={320}           /* was 600 → now 320 px wide  */
-    height={214}          /* keeps 16 : 10 aspect ratio */
+    width={320}
+    height={214}
     className="w-full h-auto rounded-lg"
   />
 </div>
@@ -129,10 +129,10 @@ export default function FeaturesPage() {
             <div className="grid md:grid-cols-2 gap-12 items-center mb-24">
             <div className="bg-white p-4 rounded-lg shadow-md max-w-xs mx-auto">
   <Image
-    src="/payments.gif"     /* drop the query params—they’re not needed */
+    src="/payments.gif" 
     alt="Credit Building Feature"
-    width={320}           /* was 600 → now 320 px wide  */
-    height={214}          /* keeps 16 : 10 aspect ratio */
+    width={320}
+    height={214}
     className="w-full h-auto rounded-lg"
   />
 </div>
@@ -190,10 +190,10 @@ export default function FeaturesPage() {
               </div>
               <div className="bg-white p-4 rounded-lg shadow-md max-w-xs mx-auto">
   <Image
-    src="/ccdemo.gif"     /* drop the query params—they’re not needed */
+    src="/ccdemo.gif"
     alt="Credit Building Feature"
-    width={320}           /* was 600 → now 320 px wide  */
-    height={214}          /* keeps 16 : 10 aspect ratio */
+    width={320}
+    height={214}
     className="w-full h-auto rounded-lg"
   />
 </div>
@@ -214,12 +214,12 @@ export default function FeaturesPage() {
                 <div className="flex flex-wrap gap-4">
                 <Link
   href="https://apps.apple.com/us/app/venmo/id351727428"
-  target="_blank"            // optional – remove if you want same‑tab
-  rel="noopener noreferrer"  // security best‑practice with _blank
+  target="_blank" 
+  rel="noopener noreferrer"
 >
   <Button className="bg-white text-secondary hover:bg-gray-100 flex items-center">
     <Image
-      src="/ap.png?height=24&width=24"  /* replace if you have an Apple icon */
+      src="/ap.png?height=24&width=24"
       alt="Apple App Store"
       width={24}
       height={24}
@@ -230,12 +230,12 @@ export default function FeaturesPage() {
 </Link>
 <Link
   href="https://play.google.com/store/apps/details?id=com.venmo&hl=en_US"
-  target="_blank"            // optional – remove if you want same‑tab
-  rel="noopener noreferrer"  // security best‑practice with _blank
+  target="_blank"
+  rel="noopener noreferrer"
 >
   <Button className="bg-white text-secondary hover:bg-gray-100 flex items-center">
     <Image
-      src="/gp.png?height=24&width=24"  /* replace if you have an Apple icon */
+      src="/gp.png?height=24&width=24"
       alt="Google Play Store"
       width={24}
       height={24}
