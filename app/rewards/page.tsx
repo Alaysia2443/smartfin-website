@@ -44,7 +44,7 @@ const rewardItems: RewardItem[] = [
   {
     id: "earbuds",
     name: "Wireless Earbuds",
-    description: "High-quality wireless earbuds for music, calls, and online classes. Includes charging case.",
+    description: "High-quality wireless earbuds for music and calls. Includes charging case.",
     points: 3000,
     image: "https://images-na.ssl-images-amazon.com/images/I/71apwE6HGaL._AC_SL1500_.jpg",
     category: "tech",
