@@ -17,23 +17,22 @@ export default function Home() {
         {/* ─────────────────────────────  Hero Section  ───────────────────────────── */}
         <section
   className="relative py-16 md:py-24 bg-center bg-cover"
-  style={{ backgroundImage: "url('/girlphone.png')" }}   // adjust path if needed
+  style={{ backgroundImage: "url('/girlphone.png')" }}
 >
-  {/* subtle dark overlay for contrast */}
   <div className="absolute inset-0 bg-black/25 pointer-events-none" />
   
 
   <div className="relative z-10 container mx-auto px-4 md:px-6">
     <div className="grid md:grid-cols-2 gap-12 items-center">
-      {/* Text + CTA */}
       <div className="space-y-6">
         <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold leading-tight font-display text-white">
           Here to help <span className="text-primary-500">every</span> university student.
         </h1>
 
         <p className="text-lg text-gray-200">
-          SmartFin empowers college students to take control of their financial future. Build credit, track
-          spending, and earn rewards while learning essential financial skills.
+          SmartFin empowers college students to take control of their financial future.
+          Build credit, track spending, and earn rewards while learning essential
+          financial skills.
         </p>
 
         <div className="flex flex-wrap gap-4">
@@ -44,18 +43,17 @@ export default function Home() {
           </Link>
 
           <Link href="#features">
-          <Button size="lg" variant="outline" className="border-primary-500 text-primary-500">
-                  Learn More
-                </Button>
+            <Button size="lg" variant="outline" className="border-primary-500 text-primary-500">
+              Learn More
+            </Button>
           </Link>
         </div>
       </div>
 
-      {/* Phone‑shaped video container (unchanged) */}
       <div className="relative mt-10 md:mt-0 flex justify-center">
         <div className="relative w-[280px] h-[560px] rounded-[40px] overflow-hidden shadow-xl border-8 border-gray-100">
         <img
-                src="/SmartFinDemo.gif"        /* adjust path if needed */
+                src="/SmartFinDemo.gif"
                 alt="SmartFin Demo"
                 className="w-[280px] h-[550px]"
               />
@@ -79,31 +77,28 @@ export default function Home() {
             </div>
 
             <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
-              {/* Credit Building */}
               <div className="feature-card">
                 <div className="feature-icon">
                   <CreditCard className="h-6 w-6" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Credit Building</h3>
                 <p className="text-gray-600">
-                  Establish a credit score with our secured card option. Learn how credit works and improve your score
-                  over time.
+                  Establish a credit score with our secured card option.
+                  Learn how credit works and improve your score over time.
                 </p>
               </div>
 
-              {/* Financial Tracking */}
               <div className="feature-card">
                 <div className="feature-icon">
                   <TrendingUp className="h-6 w-6" />
                 </div>
                 <h3 className="text-xl font-bold mb-2">Financial Tracking</h3>
                 <p className="text-gray-600">
-                  Monitor your spending habits in real‑time. Set budgets, receive alerts, and visualize where your money
-                  goes.
+                  Monitor your spending habits in real‑time. Set budgets,
+                  receive alerts, and visualize where your money goes.
                 </p>
               </div>
 
-              {/* Financial Education */}
               <div className="feature-card">
                 <div className="feature-icon">
                   <BookOpen className="h-6 w-6" />
@@ -114,7 +109,6 @@ export default function Home() {
                 </p>
               </div>
 
-              {/* Community Support */}
               <div className="feature-card">
                 <div className="feature-icon">
                   <Users className="h-6 w-6" />
@@ -199,7 +193,6 @@ export default function Home() {
               {/* Testimonial 1 */}
               <div className="bg-white p-6 rounded-lg shadow-md">
                 <div className="flex items-center mb-4">
-                 
                   <div>
                     <h4 className="font-bold">Alex Johnson</h4>
                     <p className="text-sm text-gray-500">UCLA, Class of 2023</p>
@@ -244,11 +237,10 @@ export default function Home() {
           </div>
         </section>
 
-        {/* ─────────────────────────────  Demo Section (separate component)  ───────────────────────────── */}
-        <DemoSection />
+        {/* <DemoSection /> */}
 
         {/* ─────────────────────────────  Signup Section  ───────────────────────────── */}
-        <section className="py-16 md:py-24 bg-white">
+        <section className="py-16 md:py-24 bg-[#f8f7f4]">
           <div className="container mx-auto px-4 md:px-6 max-w-4xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-4xl font-bold mb-4 font-display">Join SmartFin Today</h2>
