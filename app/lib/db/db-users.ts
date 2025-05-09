@@ -1,3 +1,4 @@
+// app/lib/db/db-users.ts
 import { dbPool } from './db-config';
 import bcrypt from 'bcryptjs';
 import type { User, CreateUserDTO, UpdateUserDTO } from './types';
