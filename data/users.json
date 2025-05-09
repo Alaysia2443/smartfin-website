@@ -59,6 +59,46 @@
       "password": "gotit8",
       "created_at": "2025-05-09T04:38:12.618Z",
       "updated_at": "2025-05-09T04:38:12.618Z"
+    },
+    {
+      "id": 1746765921994,
+      "points": 1000,
+      "first_name": "Louise",
+      "last_name": "Louise",
+      "email": "lb@aol.com",
+      "password": "millie",
+      "created_at": "2025-05-09T04:45:21.994Z",
+      "updated_at": "2025-05-09T04:45:21.994Z"
+    },
+    {
+      "id": 1746766321188,
+      "points": 500,
+      "first_name": "User",
+      "last_name": "Test",
+      "email": "test1@example.com",
+      "password": "money",
+      "created_at": "2025-05-09T04:52:01.188Z",
+      "updated_at": "2025-05-09T04:52:11.514Z"
+    },
+    {
+      "id": 1746766568095,
+      "points": 1000,
+      "first_name": "Mr",
+      "last_name": "Mr",
+      "email": "md@aol.com",
+      "password": "boat",
+      "created_at": "2025-05-09T04:56:08.095Z",
+      "updated_at": "2025-05-09T04:56:08.095Z"
+    },
+    {
+      "id": 1746766867417,
+      "points": 1000,
+      "first_name": "dr",
+      "last_name": "robert",
+      "email": "test@yahoo.com",
+      "password": "costume",
+      "created_at": "2025-05-09T05:01:07.417Z",
+      "updated_at": "2025-05-09T05:01:07.417Z"
     }
   ]
 }

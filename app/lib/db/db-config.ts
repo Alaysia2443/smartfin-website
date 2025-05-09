@@ -1,14 +1,26 @@
 // imported in server components or API routes
 import { Pool } from 'pg';
+import fs from 'fs';
 import 'server-only'; // prevent client-side usage
 
-// configure database
+// const ca = fs.readFileSync('prod-ca-2021.crt').toString();
+
+// // configure database
+// export const dbPool = new Pool({
+//   connectionString: process.env.POSTGRES_URL_NON_POOLING,
+//   ssl: {
+//     ca,
+//     rejectUnauthorized: true
+//   }
+// });
+
 export const dbPool = new Pool({
   connectionString: process.env.POSTGRES_URL_NON_POOLING,
   ssl: {
     rejectUnauthorized: false
   }
 });
+
 
 // test database connection
 dbPool.on('error', (err) => {
