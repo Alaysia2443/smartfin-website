@@ -1,4 +1,4 @@
-import pool from './config';
+import pool from './db-config';
 import { User, CreateUserDTO, UpdateUserDTO } from './types';
 import bcrypt from 'bcryptjs';
 
