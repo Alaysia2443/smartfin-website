@@ -90,18 +90,19 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   // Signup function
   const signup = async (email: string, password: string, firstName: string, lastName: string) => {
     try {
-      const response = await fetch(getApiUrl('/api/users'), {
+      const response = await fetch('http://localhost:3000/api/users', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({
-          email,
-          password,
           first_name: firstName,
           last_name: lastName,
+          email: email,
+          password: password
         }),
-      })
+        //credentials: 'include' // to use cookies for auth
+      });
 
       if (!response.ok) {
         const error = await response.json()

@@ -1,89 +1,65 @@
-
 import { NextResponse } from 'next/server';
 import * as userService from '@/app/lib/db/users';
 
-// GET /api/users - Get all users
-export async function GET() {
+export const GET = async () => {
     try {
         const users = await userService.getUsers();
         return NextResponse.json(users);
     } catch (error) {
-        console.error('Error in GET /api/users:', error);
-        return NextResponse.json({ 
-            error: 'Error fetching users',
-            details: error instanceof Error ? error.message : 'Unknown error'
-        }, { status: 500 });
+        return handleError(error, 'Error fetching users');
     }
-}
+};
 
-// POST /api/users - Create a new user
-export async function POST(request: Request) {
+export const POST = async (request: Request) => {
     try {
         const body = await request.json();
-        console.log('Received request body:', body);
-        
         const user = await userService.createUser(body);
         return NextResponse.json(user, { status: 201 });
     } catch (error) {
-        console.error('Error in POST /api/users:', error);
-        return NextResponse.json({ 
-            error: 'Error creating user',
-            details: error instanceof Error ? error.message : 'Unknown error'
-        }, { status: 500 });
+        return handleError(error, 'Error creating user');
     }
-}
+};
 
-// PUT /api/users/:id - Update a user
-export async function PUT(request: Request) {
+export const PUT = async (request: Request) => {
     try {
         const { searchParams } = new URL(request.url);
         const id = searchParams.get('id');
-        
-        if (!id) {
-            return NextResponse.json({ error: 'User ID is required' }, { status: 400 });
-        }
+
+        if (!id) return NextResponse.json({ error: 'User ID required' }, { status: 400 });
 
         const body = await request.json();
-        console.log('Update request for user', id, 'with body:', body);
-        
         const user = await userService.updateUser(parseInt(id), body);
-        
-        if (!user) {
-            return NextResponse.json({ error: 'User not found' }, { status: 404 });
-        }
 
-        return NextResponse.json(user);
+        return user
+            ? NextResponse.json(user)
+            : NextResponse.json({ error: 'User not found' }, { status: 404 });
     } catch (error) {
-        console.error('Error in PUT /api/users:', error);
-        return NextResponse.json({ 
-            error: 'Error updating user',
-            details: error instanceof Error ? error.message : 'Unknown error'
-        }, { status: 500 });
+        return handleError(error, 'Error updating user');
     }
-}
+};
 
-// DELETE /api/users/:id - Delete a user
-export async function DELETE(request: Request) {
+export const DELETE = async (request: Request) => {
     try {
         const { searchParams } = new URL(request.url);
         const id = searchParams.get('id');
-        
-        if (!id) {
-            return NextResponse.json({ error: 'User ID is required' }, { status: 400 });
-        }
+
+        if (!id) return NextResponse.json({ error: 'User ID required' }, { status: 400 });
 
         const success = await userService.deleteUser(parseInt(id));
-        
-        if (!success) {
-            return NextResponse.json({ error: 'User not found' }, { status: 404 });
-        }
 
-        return NextResponse.json({ message: 'User deleted successfully' });
+        return success
+            ? NextResponse.json({ message: 'User deleted' })
+            : NextResponse.json({ error: 'User not found' }, { status: 404 });
     } catch (error) {
-        console.error('Error in DELETE /api/users:', error);
-        return NextResponse.json({ 
-            error: 'Error deleting user',
-            details: error instanceof Error ? error.message : 'Unknown error'
-        }, { status: 500 });
+        return handleError(error, 'Error deleting user');
     }
-}
+};
+
+const handleError = (error: unknown, message: string) => {
+    console.error(message, error);
+    return NextResponse.json({
+        error: message,
+        details: error instanceof Error ? error.message : 'Unknown error',
+        fallbackUsed: error instanceof Error && error.message.includes('JSON fallback')
+    }, { status: 500 });
+};

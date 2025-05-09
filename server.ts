@@ -1,87 +1,61 @@
 import express from 'express';
-import fs from 'fs/promises';
-import path from 'path';
 import cors from 'cors';
-import { v4 as uuidv4 } from 'uuid';
+import { getUsers, getUserByEmail, createUser } from '@/app/lib/db/users';
+import { compare } from 'bcrypt-ts';
 
 const app = express();
 app.use(express.json());
-app.use(cors());
+//app.use(cors({ origin: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000',  credentials: true }));
+app.use(cors({
+    origin: process.env.NODE_ENV === 'production'
+        ? 'https://v0-smartfin-website-remake.vercel.app'
+        : 'http://localhost:3000',
+    methods: ['POST', 'OPTIONS'],
+    allowedHeaders: ['Content-Type']
+}));
 
-const dataPath = path.join(__dirname, 'data/users.json');
 
-async function getUsersData() {
-    const data = await fs.readFile(dataPath, 'utf-8');
-    return JSON.parse(data);
-}
-
-async function saveUsersData(data: any) {
-    await fs.writeFile(dataPath, JSON.stringify(data, null, 2), 'utf-8');
-}
-
-// Get all users
-app.get('/api/users', async (req, res) => {
-    const data = await getUsersData();
-    res.json(data.users);
-});
-
-// Get user by ID
-app.get('/api/users/:id', async (req, res) => {
-    const data = await getUsersData();
-    const user = data.users.find((u: any) => u.id === Number(req.params.id));
-    if (user) res.json(user);
-    else res.status(404).json({ error: 'User not found' });
-});
-
-// Create user (signup)
-app.post('/api/users', async (req, res) => {
-    const data = await getUsersData();
-    const newUser = {
-        id: uuidv4(),
-        ...req.body
-    };
-    data.users.push(newUser);
-    await saveUsersData(data);
-    res.status(201).json(newUser);
-});
-
-// Update user
-app.put('/api/users/:id', async (req, res) => {
-    const data = await getUsersData();
-    const idx = data.users.findIndex((u: any) => u.id === Number(req.params.id));
-    if (idx !== -1) {
-        data.users[idx] = { ...data.users[idx], ...req.body };
-        await saveUsersData(data);
-        res.json(data.users[idx]);
-    } else {
-        res.status(404).json({ error: 'User not found' });
+// User endpoints
+export const getUsersHandler = async (req: express.Request, res: express.Response) => {
+    try {
+        const users = await getUsers();
+        res.json(users);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to fetch users' });
     }
-});
+};
 
-// Delete user
-app.delete('/api/users/:id', async (req, res) => {
-    const data = await getUsersData();
-    const idx = data.users.findIndex((u: any) => u.id === Number(req.params.id));
-    if (idx !== -1) {
-        const deleted = data.users.splice(idx, 1);
-        await saveUsersData(data);
-        res.json(deleted[0]);
-    } else {
-        res.status(404).json({ error: 'User not found' });
+export const createUserHandler = async (req: express.Request, res: express.Response) => {
+    try {
+        const newUser = await createUser(req.body);
+        res.status(201).json(newUser);
+    } catch (error) {
+        res.status(500).json({ error: 'Failed to create user' });
     }
-});
+};
 
-// Login endpoint (simple check)
-app.post('/api/auth/login', async (req, res) => {
-    const { email, password } = req.body;
-    const data = await getUsersData();
-    const user = data.users.find((u: any) => u.email === email && u.password === password);
-    if (user) {
-        res.json(user);
-    } else {
-        res.status(401).json({ error: 'Invalid credentials' });
+export const loginHandler = async (req: express.Request, res: express.Response) => {
+    try {
+        const { email, password } = req.body;
+        const user = await getUserByEmail(email);
+
+        if (!user) return res.status(401).json({ error: 'Invalid credentials' });
+
+        const isValid = await compare(password, user.password);
+
+        if (!isValid) return res.status(401).json({ error: 'Invalid credentials' });
+
+        const { password: _, ...safeUser } = user;
+        res.json(safeUser);
+    } catch (error) {
+        res.status(500).json({ error: 'Login failed' });
     }
-});
+};
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
+// Configure routes
+app.get('/api/users', getUsersHandler);
+app.post('/api/users', createUserHandler);
+app.post('/api/auth/login', loginHandler);
+
+const PORT = process.env.PORT || 3001;
+app.listen(PORT, () => console.log(`Express server running on port ${PORT}`));

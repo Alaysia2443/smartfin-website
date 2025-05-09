@@ -7,6 +7,58 @@
       "email": "john.doe@example.com",
       "password": "test123",
       "points": 1000
+    },
+    {
+      "id": 1746759360226,
+      "points": 1000,
+      "email": "j@example.com",
+      "password": "psql34#",
+      "first_name": "James",
+      "last_name": "Dawn"
+    },
+    {
+      "id": 1746759876070,
+      "points": 1000,
+      "email": "d.james@wish.com",
+      "password": "omg123$",
+      "first_name": "Darryl",
+      "last_name": "James"
+    },
+    {
+      "id": 1746760090270,
+      "points": 1000,
+      "email": "tina.belcher@yahoo.com",
+      "password": "tinab88",
+      "first_name": "Tina",
+      "last_name": "Belcher"
+    },
+    {
+      "id": 1746764870475,
+      "points": 1000,
+      "email": "test@example.com",
+      "password": "test123",
+      "created_at": "2025-05-09T04:27:50.475Z",
+      "updated_at": "2025-05-09T04:27:50.475Z"
+    },
+    {
+      "id": 1746765444491,
+      "points": 500,
+      "first_name": "Teddy",
+      "last_name": "Handyman",
+      "email": "handy@man.com",
+      "password": "test123",
+      "created_at": "2025-05-09T04:37:24.491Z",
+      "updated_at": "2025-05-09T04:37:47.069Z"
+    },
+    {
+      "id": 1746765492618,
+      "points": 1000,
+      "first_name": "Bob",
+      "last_name": "Belcher",
+      "email": "bob@burgers.com",
+      "password": "gotit8",
+      "created_at": "2025-05-09T04:38:12.618Z",
+      "updated_at": "2025-05-09T04:38:12.618Z"
     }
   ]
 }
