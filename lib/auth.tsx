@@ -105,7 +105,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
 
   // Signup function
   const signup = async (email: string, password: string, firstName: string, lastName: string) => {
-    console.log('flag')
+    console.log('flag');
     try {
       console.log(`Attempting signup with API URL: ${getApiUrl('/api/users')}`);
       
