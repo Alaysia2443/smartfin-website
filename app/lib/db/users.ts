@@ -120,11 +120,11 @@ export const deleteUser = async (id: number): Promise<boolean> => {
   try {
     const query = 'DELETE FROM users WHERE id = $1';
     console.log('Executing query:', query, 'with id:', id);
-    
     const result = await pool.query(query, [id]);
-    return result.rowCount > 0;
+    
+    return (result.rowCount ?? 0) > 0;
   } catch (error) {
     console.error('Error in deleteUser:', error);
     throw error;
   }
-}; 
+};
