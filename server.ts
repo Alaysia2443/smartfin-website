@@ -6,13 +6,14 @@ import { compare } from 'bcrypt-ts';
 const app = express();
 app.use(express.json());
 //app.use(cors({ origin: process.env.NEXT_PUBLIC_API_BASE_URL || 'http://localhost:3000',  credentials: true }));
-app.use(cors({
-    origin: process.env.NODE_ENV === 'production'
-        ? 'https://v0-smartfin-website-remake.vercel.app'
-        : 'http://localhost:3000',
-    methods: ['POST', 'OPTIONS'],
-    allowedHeaders: ['Content-Type']
-}));
+app.use(cors());
+// app.use(cors({
+//     origin: process.env.NODE_ENV === 'production'
+//         ? 'https://v0-smartfin-website-remake.vercel.app'
+//         : 'http://localhost:3000',
+//     methods: ['POST', 'OPTIONS'],
+//     allowedHeaders: ['Content-Type']
+// }));
 
 
 // User endpoints
