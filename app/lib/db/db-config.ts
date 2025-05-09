@@ -1,28 +1,19 @@
-// imported in server components or API routes
 import { Pool } from 'pg';
-import fs from 'fs';
-import 'server-only'; // prevent client-side usage
+import 'server-only';
 
-// const ca = fs.readFileSync('prod-ca-2021.crt').toString();
+const connectionString = process.env.POSTGRES_URL_NON_POOLING || '';
 
-// // configure database
-// export const dbPool = new Pool({
-//   connectionString: process.env.POSTGRES_URL_NON_POOLING,
-//   ssl: {
-//     ca,
-//     rejectUnauthorized: true
-//   }
-// });
+const poolConfig = {
+  connectionString,
+  ssl: process.env.NODE_ENV === 'production' 
+    ? true  // enable SSL for Vercel
+    : false // disable SSL for local machine
+};
 
-console.log(process.env.POSTGRES_URL_NON_POOLING);
+console.log('DB Environment:', process.env.NODE_ENV);
+console.log('SSL Enabled:', !!poolConfig.ssl);
 
-export const dbPool = new Pool({
-  connectionString: process.env.POSTGRES_URL_NON_POOLING,
-  ssl: {
-    rejectUnauthorized: false
-  }
-});
-
+export const dbPool = new Pool(poolConfig);
 
 // test database connection
 dbPool.on('error', (err) => {
