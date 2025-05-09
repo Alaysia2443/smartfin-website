@@ -14,6 +14,8 @@ import 'server-only'; // prevent client-side usage
 //   }
 // });
 
+console.log(process.env.POSTGRES_URL_NON_POOLING);
+
 export const dbPool = new Pool({
   connectionString: process.env.POSTGRES_URL_NON_POOLING,
   ssl: {
