@@ -99,6 +99,16 @@
       "password": "costume",
       "created_at": "2025-05-09T05:01:07.417Z",
       "updated_at": "2025-05-09T05:01:07.417Z"
+    },
+    {
+      "id": 1746807712110,
+      "points": 1000,
+      "first_name": "Aima",
+      "last_name": "Alakhume",
+      "email": "aimailene@gmail.com",
+      "password": "test",
+      "created_at": "2025-05-09T16:21:52.110Z",
+      "updated_at": "2025-05-09T16:21:52.110Z"
     }
   ]
 }
