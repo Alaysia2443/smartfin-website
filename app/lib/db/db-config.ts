@@ -6,7 +6,7 @@ const connectionString = process.env.POSTGRES_URL_NON_POOLING || '';
 
 const poolConfig = {
   connectionString,
-  ssl: process.env.NODE_ENV === 'test' 
+  ssl: process.env.NODE_ENV === 'development' 
     ? true  // enable SSL for Vercel
     : false // disable SSL for local machine
 };
