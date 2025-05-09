@@ -32,18 +32,23 @@ export default function CartPage() {
     const totalPoints = getTotalPoints()
 
     if (user.points >= totalPoints) {
+      // Calculate new points balance
       const newPointsBalance = user.points - totalPoints
+
+      // Update user points
       updateUserPoints(newPointsBalance)
 
+      // Clear cart
       clearCart()
 
+      // Show success toast
       toast({
         title: "Order Placed!",
         description: `Your order has been successfully placed. You spent ${totalPoints} points. Your new balance is ${newPointsBalance} points.`,
         duration: 5000,
       })
 
-      // redirect to rewards page
+      // Redirect to rewards page
       router.push("/rewards")
     } else {
       toast({
