@@ -1,3 +1,4 @@
+// app/lib/db/db-config.ts
 import { Pool } from 'pg';
 import 'server-only';
 
@@ -5,7 +6,7 @@ const connectionString = process.env.POSTGRES_URL_NON_POOLING || '';
 
 const poolConfig = {
   connectionString,
-  ssl: process.env.NODE_ENV === 'production' 
+  ssl: process.env.NODE_ENV === 'test' 
     ? true  // enable SSL for Vercel
     : false // disable SSL for local machine
 };
