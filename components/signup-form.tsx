@@ -54,6 +54,8 @@ export default function SignupForm() {
           throw new Error("Passwords do not match")
         }
 
+        console.log('signup form flag');
+
         await signup(formData.email, formData.password, formData.firstName, formData.lastName)
 
         toast({

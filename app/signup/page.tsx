@@ -40,6 +40,8 @@ export default function SignupPage() {
         throw new Error("Passwords do not match")
       }
 
+      console.log('signup PAGE flag');
+
       await signup(formData.email, formData.password, formData.firstName, formData.lastName)
 
       toast({
