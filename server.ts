@@ -2,6 +2,7 @@ import express from 'express';
 import fs from 'fs/promises';
 import path from 'path';
 import cors from 'cors';
+import { v4 as uuidv4 } from 'uuid';
 
 const app = express();
 app.use(express.json());
@@ -36,7 +37,7 @@ app.get('/api/users/:id', async (req, res) => {
 app.post('/api/users', async (req, res) => {
     const data = await getUsersData();
     const newUser = {
-        id: Date.now(), // simple unique ID
+        id: uuidv4(),
         ...req.body
     };
     data.users.push(newUser);

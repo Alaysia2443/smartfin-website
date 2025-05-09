@@ -7,14 +7,6 @@
       "email": "john.doe@example.com",
       "password": "test123",
       "points": 1000
-    },
-    {
-      "id": 1746754700479,
-      "points": 500,
-      "email": "aimailene@gmail.com",
-      "password": "test",
-      "first_name": "Aima",
-      "last_name": "Alakhume"
     }
   ]
 }
