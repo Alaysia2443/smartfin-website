@@ -53,20 +53,35 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   // Login function
   const login = async (email: string, password: string) => {
     try {
+      console.log(`Attempting login with API URL: ${getApiUrl('/api/auth/login')}`);
+      
       const response = await fetch(getApiUrl('/api/auth/login'), {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
         body: JSON.stringify({ email, password }),
-      })
-
+      });
+      
+      console.log('Login response status:', response.status);
+      
       if (!response.ok) {
-        const error = await response.json()
-        throw new Error(error.error || 'Invalid credentials')
+        const errorText = await response.text();
+        console.error('Login response error:', response.status, errorText);
+        
+        let errorData;
+        try {
+          errorData = JSON.parse(errorText);
+        } catch (e) {
+          errorData = { error: errorText || 'Unknown error' };
+        }
+        
+        throw new Error(errorData.error || `HTTP error ${response.status}`);
       }
 
-      const userData = await response.json()
+      const userData = await response.json();
+      console.log('Login successful, user data received');
+      
       // Transform the data to match frontend structure
       const transformedUser = {
         id: userData.id.toString(),
@@ -74,22 +89,25 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         firstName: userData.first_name,
         lastName: userData.last_name,
         points: userData.points
-      }
-      setUser(transformedUser)
+      };
       
-      // Only set in localStorage if in browser
+      setUser(transformedUser);
+      
       if (typeof window !== 'undefined') {
-        localStorage.setItem("smartfin_user", JSON.stringify(transformedUser))
+        localStorage.setItem("smartfin_user", JSON.stringify(transformedUser));
       }
     } catch (error) {
-      console.error("Login error:", error)
-      throw error
+      console.error("Login error details:", error);
+      throw error;
     }
-  }
+  };
+
 
   // Signup function
   const signup = async (email: string, password: string, firstName: string, lastName: string) => {
     try {
+      console.log(`Attempting signup with API URL: ${getApiUrl('/api/users')}`);
+      
       const response = await fetch(getApiUrl('/api/users'), {
         method: 'POST',
         headers: {
@@ -102,13 +120,26 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
           password: password
         }),
       });
-
+      
+      console.log('Signup response status:', response.status);
+      
       if (!response.ok) {
-        const error = await response.json()
-        throw new Error(error.error || 'Failed to create account')
+        const errorText = await response.text();
+        console.error('Signup response error:', response.status, errorText);
+        
+        let errorData;
+        try {
+          errorData = JSON.parse(errorText);
+        } catch (e) {
+          errorData = { error: errorText || 'Unknown error' };
+        }
+        
+        throw new Error(errorData.error || `HTTP error ${response.status}`);
       }
 
-      const userData = await response.json()
+      const userData = await response.json();
+      console.log('Signup successful, user data received');
+      
       // Transform the data to match frontend structure
       const transformedUser = {
         id: userData.id.toString(),
@@ -116,18 +147,20 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
         firstName: userData.first_name,
         lastName: userData.last_name,
         points: userData.points
-      }
-      setUser(transformedUser)
+      };
+      
+      setUser(transformedUser);
       
       // Only set in localStorage if in browser
       if (typeof window !== 'undefined') {
-        localStorage.setItem("smartfin_user", JSON.stringify(transformedUser))
+        localStorage.setItem("smartfin_user", JSON.stringify(transformedUser));
       }
     } catch (error) {
-      console.error("Signup error:", error)
-      throw error
+      console.error("Signup error details:", error);
+      throw error;
     }
-  }
+  };
+
 
   // Logout function
   const logout = () => {

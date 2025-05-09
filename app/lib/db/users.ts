@@ -55,15 +55,18 @@ const jsonUsers = {
   }
 };
 
-// Unified interface with fallback
+
 async function withFallback<T>(dbFn: () => Promise<T>, jsonFn: () => Promise<T>): Promise<T> {
   try {
+    console.log('Attempting database operation');
     return await dbFn();
   } catch (error) {
-    console.error('Database error, using JSON fallback:', error);
+    console.error('Database error details:', error);
+    console.log('Using JSON fallback');
     return jsonFn();
   }
 }
+
 
 export const getUsers = async (): Promise<User[]> => 
   withFallback(dbUsers.getUsers, jsonUsers.getUsers);
